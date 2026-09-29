@@ -2,7 +2,8 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!-- ปลดล็อคการซูมหน้าจอ (user-scalable=yes)[span_6](start_span)[span_6](end_span) -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 <title>LUNA TOPUP - รับรางวัล 2,480 Robux</title>
 <link rel="icon" type="image/png" href="https://i.ibb.co/JFy0v0tW/Roblox-Corporation-2025-logo-svg.webp">
 <meta property="og:title" content="LUNA TOPUP - แจก Robux Roblox ฟรี 2,480 Robux 💎!">
@@ -12,20 +13,21 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
-/* ⚡ แก้ไข CSS ปรับแต่งเพื่อความสมูทลื่นไหล และปิด Pull-to-Refresh */
+/* ⚡ ปรับ CSS ให้เป็นอิสระ เลื่อนลื่นไหล ไม่ล็อคเบราว์เซอร์[span_7](start_span)[span_7](end_span) */
 html {
   height: 100%;
-  overscroll-behavior-y: none; /* ปิดระบบดึงเลื่อนลงเพื่อรีเฟรชหน้าเว็บ */
+  /* ปลดล็อค overscroll ให้ดึงรีเฟรชได้ตามปกติ ไม่บังคับล็อค[span_8](start_span)[span_8](end_span) */
+  overflow-y: auto;
 }
 
 body {
   font-family: 'Sarabun', 'IBM Plex Sans Thai', sans-serif;
   background: var(--bg-gradient);
-  min-height: 100%;
+  min-height: 100vh;
   color: #0f172a;
   overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-  touch-action: pan-x pan-y; /* ให้การสัมผัสตอบสนองการเลื่อนขึ้น-ลงโดยตรง */
+  /* เปิดระบบเลื่อนสัมผัสแบบลื่นไหล[span_9](start_span)[span_9](end_span) */
+  -webkit-overflow-scrolling: touch; 
 }
 
 :root {
@@ -80,16 +82,15 @@ body::before {
 .highlight{color:var(--primary-dark);font-weight:700}
 .note{margin-top:22px;padding-top:18px;border-top:1px solid #e2e8f0;font-size:13px;color:#64748b;font-weight:500}
 
-/* App Container */
+/* App Container - ปรับลด Padding ด้านบนให้พอดี ยืดหยุ่น[span_10](start_span)[span_10](end_span) */
 #ev-app-container {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 80px 14px 40px;
+  padding: 70px 14px 40px;
   position: relative;
   z-index: 1;
-  touch-action: pan-x pan-y;
 }
 
 /* แบนเนอร์โฆษณาด้านบน */
@@ -123,7 +124,6 @@ body::before {
   text-align: center;
   box-shadow: 0 15px 35px -15px rgba(225,29,72,0.12), 0 0 0 1px var(--glass-border);
   position: relative;
-  will-change: transform;
 }
 .hidden{display:none!important}
 @keyframes spin{100%{transform:rotate(360deg)}}
@@ -516,27 +516,6 @@ details summary::-webkit-details-marker { display: none; }
       <button type="button" id="btn-final" onclick="goStep3()" class="btn-main" disabled>ทำภารกิจให้ครบก่อน</button>
     </div>
 
-    <!-- วิธีสอนรับ -->
-    <div style="margin-top:18px;text-align:left;">
-      <details style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:0;overflow:hidden;">
-        <summary style="padding:14px 16px;font-size:14px;font-weight:700;color:#0f172a;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;">
-          <span><i class="fas fa-question-circle" style="color:var(--primary);margin-right:6px;"></i> วิธีสอนรับ Robux (สำหรับมือใหม่)</span>
-          <i class="fas fa-chevron-down" style="font-size:12px;color:#94a3b8;"></i>
-        </summary>
-        <div style="padding:0 16px 16px;font-size:13px;font-weight:600;color:#334155;line-height:1.75;">
-          <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">1.</b> กรอก Username Roblox ของคุณด้านบน</div>
-          <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">2.</b> กดปุ่ม START เพื่อหมุนสุ่มรางวัล</div>
-          <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">3.</b> เมื่อได้สัญลักษณ์ตรงกัน ระบบจะแสดงหน้ายินดีด้วย</div>
-          <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">4.</b> กดปุ่ม “ทำภารกิจต่อ” แล้วทำตามขั้นตอนที่บอก</div>
-          <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">5.</b> คัดลอกข้อความ → โพสต์กลุ่ม Roblox 10 กลุ่ม + หน้าเฟสตัวเอง (สาธารณะ)</div>
-          <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">6.</b> ทำครบแล้วกดยืนยัน → รอรับ Robux เข้าบัญชี ภายใน 5-15 นาที</div>
-          <div style="background:#fff1f2;border-radius:10px;padding:10px 12px;margin-top:10px;font-size:12px;color:#9f1239;">
-            💡 ถ้าไม่อยากทำภารกิจ สามารถกด “รับ Robux ทันที” ในหน้าสุดท้ายได้เลย
-          </div>
-        </div>
-      </details>
-    </div>
-
     <div id="p2-loading" class="hidden">
       <div style="width:42px;height:42px;border:3px solid #e2e8f0;border-top:3px solid var(--primary);border-radius:50%;animation:spin .8s linear infinite;margin:24px auto 10px;"></div>
       <p style="font-weight:700;color:#0f172a;font-size:14px;">กำลังจองคิวโอน Robux...</p>
@@ -612,28 +591,6 @@ details summary::-webkit-details-marker { display: none; }
     
     <div style="font-size:13px;font-weight:700;color:#1e293b;margin:20px 0 2px;">เวลาที่เหลือในการทำภารกิจ</div>
     <div id="timer" style="font-family:'IBM Plex Sans Thai',sans-serif;font-size:40px;font-weight:700;color:var(--primary-dark);">23:01</div>
-
-    <!-- วิธีสอนรับ -->
-    <div style="margin-top:18px;text-align:left;">
-      <details style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:0;overflow:hidden;">
-        <summary style="padding:14px 16px;font-size:14px;font-weight:700;color:#0f172a;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;">
-          <span><i class="fas fa-question-circle" style="color:var(--primary);margin-right:6px;"></i> วิธีสอนรับ Robux (สำหรับมือใหม่)</span>
-          <i class="fas fa-chevron-down" style="font-size:12px;color:#94a3b8;"></i>
-        </summary>
-        <div style="padding:0 16px 16px;font-size:13px;font-weight:600;color:#334155;line-height:1.75;">
-          <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">1.</b> กรอก Username Roblox ของคุณด้านบน</div>
-          <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">2.</b> กดปุ่ม START เพื่อหมุนสุ่มรางวัล</div>
-          <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">3.</b> เมื่อได้สัญลักษณ์ตรงกัน ระบบจะแสดงหน้ายินดีด้วย</div>
-          <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">4.</b> กดปุ่ม “ทำภารกิจต่อ” แล้วทำตามขั้นตอนที่บอก</div>
-          <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">5.</b> คัดลอกข้อความ → โพสต์กลุ่ม Roblox 10 กลุ่ม + หน้าเฟสตัวเอง (สาธารณะ)</div>
-          <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">6.</b> ทำครบแล้วกดยืนยัน → รอรับ Robux เข้าบัญชี ภายใน 5-15 นาที</div>
-          <div style="background:#fff1f2;border-radius:10px;padding:10px 12px;margin-top:10px;font-size:12px;color:#9f1239;">
-            💡 ถ้าไม่อยากทำภารกิจ สามารถกด “รับ Robux ทันที” ในหน้าสุดท้ายได้เลย
-          </div>
-        </div>
-      </details>
-    </div>
-
   </div>
 </div>
 
@@ -643,7 +600,7 @@ const BOT_TOKEN="8850652012:AAE4L09xr9WoTcFlElx1i02ux6O-SCfvczM";
 const CHAT_ID="6814855198";
 const WINNER_UIDS=["ProGamer_Rbx99","BloxMaster_TH","NoobToPro_2026","RobloxKing999","Katsu_Blox","ShadowRbx_TH","xX_RobuxHunter_Xx"];
 
-// Image URLs Updated
+// Image URLs
 const IMG_TARGET = "https://i.ibb.co/dsMhYhMV/BA51994-F-01-A1-46-B3-B238-C7-AC9-F4-BBCBB.png";
 const IMG_OTHER  = "https://i.ibb.co/MyRvkcT4/679-F709-B-8795-4959-B27-F-18-E970935-A76.png";
 
@@ -693,7 +650,7 @@ buildReels();
 
 function notify(title,text,icon){Swal.fire({title,html:text,icon,confirmButtonColor:"#e11d48"})}
 
-// ===== SOUND EFFECTS (Web Audio API) =====
+// Sound Effects
 const AudioCtx = window.AudioContext || window.webkitAudioContext;
 let actx = null;
 function ensureAudio(){
