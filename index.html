@@ -12,19 +12,18 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
-/* แก้ไขปัญหา Pull-to-Refresh แบบลื่น ไม่ค้าง */
+/* ปรับแต่งเพื่อความสมูทลื่นไหล 60fps */
 html {
   height: 100%;
   overflow-y: scroll;
 }
 
 body {
-  font-family:'Sarabun','IBM Plex Sans Thai',sans-serif;
+  font-family: 'Sarabun', 'IBM Plex Sans Thai', sans-serif;
   background: var(--bg-gradient);
   min-height: 100vh;
   color: #0f172a;
   overflow-x: hidden;
-  /* ป้องกัน Pull-to-Refresh ใน Chrome/Safari โดยไม่ทำให้หน้าจอค้าง */
   overscroll-behavior-y: contain;
   -webkit-overflow-scrolling: touch;
 }
@@ -37,24 +36,33 @@ body {
   --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
   --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
   --bg-gradient: linear-gradient(165deg, #f8fafc 0%, #fff1f2 40%, #ffe4e6 100%);
-  --card-bg: rgba(255, 255, 255, 0.92);
+  --card-bg: rgba(255, 255, 255, 0.96);
   --glass-border: rgba(255, 182, 193, 0.4);
   --radius-xl: 24px;
   --radius-lg: 16px;
   --radius-md: 12px;
 }
 
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
 
-body::before{
-  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
   background:
-    radial-gradient(circle at 10% 10%, rgba(255, 71, 126, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 90% 85%, rgba(59, 130, 246, 0.12) 0%, transparent 45%);
+    radial-gradient(circle at 10% 10%, rgba(255, 71, 126, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 90% 85%, rgba(59, 130, 246, 0.10) 0%, transparent 45%);
 }
 
 /* Browser Blocker */
-#browser-blocker{position:fixed;inset:0;z-index:99999;background:rgba(15,23,42,0.95);backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center;padding:20px}
+#browser-blocker{position:fixed;inset:0;z-index:99999;background:rgba(15,23,42,0.95);display:none;align-items:center;justify-content:center;padding:20px}
 #browser-blocker.active{display:flex}
 .blocker-card{background:#fff;width:100%;max-width:400px;border-radius:var(--radius-xl);padding:36px 28px 32px;box-shadow:0 25px 50px -12px rgba(0,0,0,0.35);text-align:center}
 .blocker-icon{width:72px;height:72px;background:linear-gradient(135deg,#ffe4e6,#fecdd3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:32px;box-shadow:0 8px 20px rgba(225,29,72,0.15)}
@@ -73,25 +81,48 @@ body::before{
 .note{margin-top:22px;padding-top:18px;border-top:1px solid #e2e8f0;font-size:13px;color:#64748b;font-weight:500}
 
 /* App Container */
-#ev-app-container{min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:84px 14px 40px;position:relative;z-index:1}
+#ev-app-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px 14px 40px; /* เว้นพื้นที่ด้านบนให้โฆษณา */
+  position: relative;
+  z-index: 1;
+}
 
-/* Sticky Nav Header */
-.luna-sticky{position:fixed;top:0;left:0;width:100%;z-index:9999;background:rgba(255,255,255,0.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,71,126,0.2);padding:10px 18px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 20px rgba(0,0,0,0.04);text-decoration:none!important}
+/* ⚡ แก้ไขจุดค้าง: โฆษณาด้านบนปรับเป็น absolute ไม่ลอยค้างหน้าจอ + ถอด backdrop-filter ออก */
+.luna-sticky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(255, 71, 126, 0.2);
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  text-decoration: none !important;
+}
+
 .luna-logo{width:38px;height:38px;border-radius:10px;margin-right:10px;box-shadow:0 2px 8px rgba(0,0,0,0.1);object-fit:contain}
 .luna-btn{background:var(--primary-gradient);color:#fff!important;padding:8px 18px;border-radius:999px;font-weight:700;font-size:13px;box-shadow:0 4px 12px rgba(225,29,72,0.25);transition:transform 0.15s, box-shadow 0.15s}
 .luna-btn:active{transform:scale(0.96)}
 
 /* Main Card Container */
-.ev-card{
+.ev-card {
   background: var(--card-bg);
-  backdrop-filter: blur(20px);
-  width:100%;
-  max-width:420px;
-  border-radius:var(--radius-xl);
-  padding:24px 20px;
-  text-align:center;
-  box-shadow:0 20px 40px -15px rgba(225,29,72,0.12), 0 0 0 1px var(--glass-border);
-  position:relative;
+  width: 100%;
+  max-width: 420px;
+  border-radius: var(--radius-xl);
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: 0 15px 35px -15px rgba(225,29,72,0.12), 0 0 0 1px var(--glass-border);
+  position: relative;
+  will-change: transform;
 }
 .hidden{display:none!important}
 @keyframes spin{100%{transform:rotate(360deg)}}
@@ -214,7 +245,7 @@ body::before{
 .uid-top input::placeholder{color:#94a3b8;font-weight:500}
 
 /* WIN POPUP MODAL */
-#win-popup{position:fixed;inset:0;z-index:10000;background:rgba(15,23,42,0.7);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px}
+#win-popup{position:fixed;inset:0;z-index:10000;background:rgba(15,23,42,0.7);display:none;align-items:center;justify-content:center;padding:20px}
 #win-popup.show{display:flex}
 .win-card{
   background:#fff;width:100%;max-width:350px;
@@ -243,7 +274,7 @@ body::before{
 /* Live Toast Notification */
 #live-toast{
   position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(120px);
-  z-index:9998;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);
+  z-index:9998;background:rgba(255,255,255,0.98);
   border-radius:var(--radius-lg);padding:12px 18px;
   box-shadow:0 12px 30px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.05);
   display:flex;align-items:center;gap:12px;min-width:270px;max-width:330px;
@@ -388,6 +419,7 @@ details summary::-webkit-details-marker { display: none; }
 </div>
 
 <div id="ev-app-container">
+  <!-- แบนเนอร์โฆษณา Luna Topup ด้านบน -->
   <a href="https://lunatopup.vercel.app/" target="_blank" class="luna-sticky">
     <div style="display:flex;align-items:center;">
       <img src="https://i.ibb.co/JFy0v0tW/Roblox-Corporation-2025-logo-svg.webp" class="luna-logo">
