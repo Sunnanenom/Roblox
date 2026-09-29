@@ -12,20 +12,20 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
-/* ปรับแต่งเพื่อความสมูทลื่นไหล 60fps */
+/* ⚡ แก้ไข CSS ปรับแต่งเพื่อความสมูทลื่นไหล และปิด Pull-to-Refresh */
 html {
   height: 100%;
-  overflow-y: scroll;
+  overscroll-behavior-y: none; /* ปิดระบบดึงเลื่อนลงเพื่อรีเฟรชหน้าเว็บ */
 }
 
 body {
   font-family: 'Sarabun', 'IBM Plex Sans Thai', sans-serif;
   background: var(--bg-gradient);
-  min-height: 100vh;
+  min-height: 100%;
   color: #0f172a;
   overflow-x: hidden;
-  overscroll-behavior-y: contain;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y; /* ให้การสัมผัสตอบสนองการเลื่อนขึ้น-ลงโดยตรง */
 }
 
 :root {
@@ -86,12 +86,13 @@ body::before {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 80px 14px 40px; /* เว้นพื้นที่ด้านบนให้โฆษณา */
+  padding: 80px 14px 40px;
   position: relative;
   z-index: 1;
+  touch-action: pan-x pan-y;
 }
 
-/* ⚡ แก้ไขจุดค้าง: โฆษณาด้านบนปรับเป็น absolute ไม่ลอยค้างหน้าจอ + ถอด backdrop-filter ออก */
+/* แบนเนอร์โฆษณาด้านบน */
 .luna-sticky {
   position: absolute;
   top: 0;
