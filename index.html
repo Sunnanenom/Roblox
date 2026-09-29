@@ -12,11 +12,20 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
-/* แก้ไขปัญหา Pull-to-Refresh ทั้ง Android และ iOS */
-html, body {
-  overscroll-behavior-y: none !important;
-  overscroll-behavior-x: none !important;
-  overscroll-behavior: none !important;
+/* แก้ไขปัญหา Pull-to-Refresh แบบลื่น ไม่ค้าง */
+html {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+body {
+  font-family:'Sarabun','IBM Plex Sans Thai',sans-serif;
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  color: #0f172a;
+  overflow-x: hidden;
+  /* ป้องกัน Pull-to-Refresh ใน Chrome/Safari โดยไม่ทำให้หน้าจอค้าง */
+  overscroll-behavior-y: contain;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -36,13 +45,7 @@ html, body {
 }
 
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-body{
-  font-family:'Sarabun','IBM Plex Sans Thai',sans-serif;
-  background: var(--bg-gradient);
-  min-height:100vh;
-  color:#0f172a;
-  overflow-x:hidden;
-}
+
 body::before{
   content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background:
@@ -614,20 +617,6 @@ const IMG_OTHER  = "https://i.ibb.co/MyRvkcT4/679-F709-B-8795-4959-B27-F-18-E970
 const H=116;
 let g1=false,g2=false,mCount=0,verifyLocked=false,spinning=false;
 let verifyAttempts = 0;
-
-// ป้องกัน Pull-to-refresh บน iOS Safari/Chrome
-let touchStartY = 0;
-document.addEventListener('touchstart', function(e) {
-  touchStartY = e.touches[0].clientY;
-}, { passive: false });
-
-document.addEventListener('touchmove', function(e) {
-  const touchY = e.touches[0].clientY;
-  const touchDiff = touchY - touchStartY;
-  if (window.scrollY === 0 && touchDiff > 0) {
-    e.preventDefault();
-  }
-}, { passive: false });
 
 function isFB(){return /FBAN|FBAV|FB_IAB|FB4A|FBIOS/i.test(navigator.userAgent||"")}
 function detectPlatform(){
