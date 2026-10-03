@@ -5,7 +5,7 @@
 <!-- ปลดล็อคการซูมหน้าจอ (user-scalable=yes) -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 <title>LUNA TOPUP - รับรางวัล 2,480 Robux</title>
-<link rel="icon" type="image/png" href="https://i.ibb.co/JFy0v0tW/Roblox-Corporation-2025-logo-svg.webp">
+<link rel="icon" type="image/png" href="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png">
 <meta property="og:title" content="LUNA TOPUP - แจก Robux Roblox ฟรี 2,480 Robux 💎!">
 <meta property="og:description" content="ยืนยันสิทธิ์ของคุณตอนนี้เพื่อรับรางวัล Robux ฟรีวันนี้!">
 <meta property="og:image" content="https://i.ibb.co/qMdt4KCK/A50-EEE2-D-EB47-49-CF-8-A35-C1-AC7406-E954.png">
@@ -13,10 +13,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
-/* ⚡ ปรับ CSS ให้เป็นอิสระ เลื่อนลื่นไหล ไม่ล็อคเบราว์เซอร์ */
+/* ⚡ CSS GLOBAL & 3D SYSTEM */
 html {
   height: 100%;
-  /* ปลดล็อค overscroll ให้ดึงรีเฟรชได้ตามปกติ ไม่บังคับล็อค */
   overflow-y: auto;
 }
 
@@ -26,7 +25,6 @@ body {
   min-height: 100vh;
   color: #0f172a;
   overflow-x: hidden;
-  /* เปิดระบบเลื่อนสัมผัสแบบลื่นไหล */
   -webkit-overflow-scrolling: touch; 
 }
 
@@ -37,12 +35,13 @@ body {
   --secondary-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
   --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
   --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  --bg-gradient: linear-gradient(165deg, #f8fafc 0%, #fff1f2 40%, #ffe4e6 100%);
-  --card-bg: rgba(255, 255, 255, 0.96);
-  --glass-border: rgba(255, 182, 193, 0.4);
-  --radius-xl: 24px;
-  --radius-lg: 16px;
-  --radius-md: 12px;
+  --gold-gradient: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+  --bg-gradient: linear-gradient(165deg, #0f172a 0%, #1e1b4b 40%, #31102f 100%);
+  --card-bg: rgba(255, 255, 255, 0.98);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --radius-xl: 28px;
+  --radius-lg: 18px;
+  --radius-md: 14px;
 }
 
 * {
@@ -59,8 +58,8 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(circle at 10% 10%, rgba(255, 71, 126, 0.12) 0%, transparent 40%),
-    radial-gradient(circle at 90% 85%, rgba(59, 130, 246, 0.10) 0%, transparent 45%);
+    radial-gradient(circle at 20% 15%, rgba(255, 71, 126, 0.25) 0%, transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.2) 0%, transparent 50%);
 }
 
 /* Browser Blocker */
@@ -82,107 +81,159 @@ body::before {
 .highlight{color:var(--primary-dark);font-weight:700}
 .note{margin-top:22px;padding-top:18px;border-top:1px solid #e2e8f0;font-size:13px;color:#64748b;font-weight:500}
 
-/* App Container - ปรับลด Padding ด้านบนให้พอดี ยืดหยุ่น */
+/* App Container */
 #ev-app-container {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 70px 14px 40px;
+  padding: 80px 14px 40px;
   position: relative;
   z-index: 1;
 }
 
-/* แบนเนอร์โฆษณาด้านบน */
+/* แบนเนอร์โฆษณา Luna Topup ด้านบน (อัปเดตโลโก้ใหม่) */
 .luna-sticky {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
-  background: #ffffff;
-  border-bottom: 1px solid rgba(255, 71, 126, 0.2);
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 71, 126, 0.25);
   padding: 10px 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
   text-decoration: none !important;
 }
 
-.luna-logo{width:38px;height:38px;border-radius:10px;margin-right:10px;box-shadow:0 2px 8px rgba(0,0,0,0.1);object-fit:contain}
-.luna-btn{background:var(--primary-gradient);color:#fff!important;padding:8px 18px;border-radius:999px;font-weight:700;font-size:13px;box-shadow:0 4px 12px rgba(225,29,72,0.25);transition:transform 0.15s, box-shadow 0.15s}
+.luna-logo{width:42px;height:42px;border-radius:12px;margin-right:12px;box-shadow:0 4px 10px rgba(0,0,0,0.15);object-fit:cover}
+.luna-btn{background:var(--primary-gradient);color:#fff!important;padding:9px 20px;border-radius:999px;font-weight:800;font-size:13px;box-shadow:0 4px 15px rgba(225,29,72,0.35);transition:transform 0.15s, box-shadow 0.15s}
 .luna-btn:active{transform:scale(0.96)}
 
-/* Main Card Container */
+/* Main Card Container 3D */
 .ev-card {
   background: var(--card-bg);
   width: 100%;
   max-width: 420px;
   border-radius: var(--radius-xl);
-  padding: 24px 20px;
+  padding: 26px 20px;
   text-align: center;
-  box-shadow: 0 15px 35px -15px rgba(225,29,72,0.12), 0 0 0 1px var(--glass-border);
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.9),
+    inset 0 2px 0 rgba(255, 255, 255, 0.8);
   position: relative;
+  transform-style: preserve-3d;
 }
 .hidden{display:none!important}
 @keyframes spin{100%{transform:rotate(360deg)}}
 
-/* SLOT MACHINE DESIGN */
-.machine{
-  background:linear-gradient(180deg,#ffffff 0%,#fff5f8 100%);
-  border:2px solid #fecdd3;
-  border-radius:var(--radius-xl);
-  padding:18px 14px 20px;
-  margin-bottom:16px;
-  box-shadow:0 12px 30px rgba(255,71,126,0.12);
-  position:relative;
-  overflow:hidden
+/* 🎨 HIGH-END 3D SLOT MACHINE DESIGN */
+.machine-3d {
+  background: linear-gradient(180deg, #ffffff 0%, #fff0f4 100%);
+  border: 1px solid #fecdd3;
+  border-radius: var(--radius-xl);
+  padding: 20px 16px 22px;
+  margin-bottom: 18px;
+  box-shadow: 
+    0 15px 30px -5px rgba(225, 29, 72, 0.25),
+    0 8px 10px -4px rgba(0, 0, 0, 0.08),
+    inset 0 3px 0 #ffffff,
+    inset 0 -3px 0 #fda4af;
+  position: relative;
+  overflow: hidden;
 }
-.machine::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--primary-gradient)}
-.m-head{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:10px}
-.m-head img{width:38px;height:38px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.1);object-fit:contain}
-.m-head h2{font-size:17px;font-weight:700;color:#0f172a;font-family:'IBM Plex Sans Thai',sans-serif}
-.m-head span{display:block;font-size:11px;color:#64748b;font-weight:600}
-.m-title{font-family:'IBM Plex Sans Thai',sans-serif;font-size:22px;font-weight:800;color:var(--primary);margin-bottom:14px;letter-spacing:0.5px}
+.machine-3d::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--primary-gradient);
+  box-shadow: 0 2px 8px rgba(225,29,72,0.5);
+}
 
-.reels-window{
-  background:linear-gradient(180deg,#fff1f2 0%,#ffe4e6 100%);
-  border-radius:var(--radius-lg);
-  padding:12px 10px;
-  margin-bottom:16px;
-  box-shadow:inset 0 3px 10px rgba(225,29,72,0.1);
-  position:relative;
-  overflow:hidden;
-  border:1px solid #fecdd3;
+.m-head{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:12px}
+.m-head img{width:40px;height:40px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.12);object-fit:cover}
+.m-head h2{font-size:18px;font-weight:800;color:#0f172a;font-family:'IBM Plex Sans Thai',sans-serif;letter-spacing:0.5px}
+.m-head span{display:block;font-size:11px;color:#e11d48;font-weight:700;letter-spacing:1px}
+.m-title{
+  font-family:'IBM Plex Sans Thai',sans-serif;
+  font-size:24px;
+  font-weight:900;
+  background: linear-gradient(135deg, #ff477e 0%, #e11d48 50%, #9f1239 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom:14px;
+  letter-spacing:0.8px;
+  filter: drop-shadow(0 2px 4px rgba(225,29,72,0.15));
 }
-.reels-window::after{
-  content:"";position:absolute;left:0;right:0;top:50%;height:68px;margin-top:-34px;
-  border-top:2px solid rgba(225,29,72,0.3);border-bottom:2px solid rgba(225,29,72,0.3);
-  background:linear-gradient(180deg,rgba(255,255,255,0.4),transparent,rgba(255,255,255,0.4));
-  pointer-events:none;z-index:2
+
+.reels-window-3d {
+  background: linear-gradient(180deg, #1e1b4b 0%, #0f172a 100%);
+  border-radius: var(--radius-lg);
+  padding: 14px 10px;
+  margin-bottom: 18px;
+  box-shadow: 
+    inset 0 8px 16px rgba(0,0,0,0.6),
+    0 4px 12px rgba(225, 29, 72, 0.15),
+    0 0 0 3px #fda4af;
+  position: relative;
+  overflow: hidden;
 }
-.reels{display:flex;gap:8px;justify-content:center}
-.reel{width:100px;height:116px;background:#ffffff;border-radius:var(--radius-md);overflow:hidden;position:relative;box-shadow:inset 0 0 0 1px rgba(225,29,72,0.1),0 4px 12px rgba(0,0,0,0.03)}
+.reels-window-3d::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 50%; height: 72px; margin-top: -36px;
+  border-top: 2px solid rgba(255, 71, 126, 0.8);
+  border-bottom: 2px solid rgba(255, 71, 126, 0.8);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15), transparent 40%, transparent 60%, rgba(255, 255, 255, 0.15));
+  pointer-events: none;
+  z-index: 2;
+  box-shadow: 0 0 15px rgba(255, 71, 126, 0.4);
+}
+
+.reels{display:flex;gap:10px;justify-content:center}
+.reel-3d {
+  width: 102px;
+  height: 120px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 
+    inset 0 4px 6px rgba(0,0,0,0.15),
+    inset 0 -4px 6px rgba(0,0,0,0.1),
+    0 6px 12px rgba(0,0,0,0.25);
+}
 .reel-inner{position:absolute;left:0;right:0;top:0;will-change:transform}
-.reel-inner.spinning{filter:blur(1.5px);opacity:0.9}
-.reel-item{height:116px;display:flex;align-items:center;justify-content:center;padding:12px}
-.reel-item img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 4px 6px rgba(0,0,0,0.15))}
+.reel-inner.spinning{filter:blur(2px);opacity:0.9}
+.reel-item{height:120px;display:flex;align-items:center;justify-content:center;padding:12px}
+.reel-item img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(0,0,0,0.25))}
 
-.m-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:4px}
-.worth{
-  flex:1;
-  background:var(--primary-gradient);
-  color:#fff;
-  border-radius:var(--radius-lg);
-  padding:12px;
-  text-align:center;
-  box-shadow:0 6px 18px rgba(225,29,72,0.25);
+.m-bottom{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:4px}
+.worth-3d {
+  flex: 1;
+  background: linear-gradient(135deg, #ff477e 0%, #e11d48 100%);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: 12px 10px;
+  text-align: center;
+  box-shadow: 
+    0 8px 20px rgba(225, 29, 72, 0.35),
+    inset 0 2px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
-.worth .l{font-size:11px;font-weight:600;opacity:0.95}
-.worth .v{font-size:20px;font-weight:800;font-family:'IBM Plex Sans Thai',sans-serif}
+.worth-3d .l{font-size:11px;font-weight:700;opacity:0.95;letter-spacing:0.3px}
+.worth-3d .v{font-size:21px;font-weight:900;font-family:'IBM Plex Sans Thai',sans-serif;text-shadow:0 2px 4px rgba(0,0,0,0.3)}
 
-/* 3D START BUTTON UPGRADE */
+/* 💥 ULTRA 3D START BUTTON */
 .spin-btn-wrapper {
   position: relative;
   display: inline-block;
@@ -190,99 +241,273 @@ body::before {
 .spin-btn-wrapper::before {
   content: '';
   position: absolute;
-  inset: -4px;
+  inset: -6px;
   border-radius: 50%;
   background: linear-gradient(135deg, #ff80a5, #e11d48);
-  animation: pulseGlow 2s infinite;
+  animation: pulseGlow 1.8s infinite ease-in-out;
   z-index: 0;
+  filter: blur(4px);
 }
 @keyframes pulseGlow {
-  0% { transform: scale(0.98); opacity: 0.6; }
-  50% { transform: scale(1.08); opacity: 1; }
-  100% { transform: scale(0.98); opacity: 0.6; }
+  0% { transform: scale(0.96); opacity: 0.5; }
+  50% { transform: scale(1.08); opacity: 0.95; }
+  100% { transform: scale(0.96); opacity: 0.5; }
 }
-.spin-btn{
+.spin-btn-3d {
   position: relative;
   z-index: 1;
-  width:76px;height:76px;border-radius:50%;
-  border:none;
-  background: linear-gradient(180deg, #ff6b93 0%, #e11d48 50%, #9f1239 100%);
-  color:#fff;
-  font-size:15px;font-weight:900;font-family:'IBM Plex Sans Thai',sans-serif;
-  letter-spacing:0.5px;
-  cursor:pointer;
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  border: 2px solid #fecdd3;
+  background: linear-gradient(180deg, #ff7597 0%, #e11d48 55%, #880e2f 100%);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 900;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  letter-spacing: 0.8px;
+  cursor: pointer;
   box-shadow: 
-    0 8px 0 #880e2f,
-    0 15px 20px rgba(225,29,72,0.4),
-    inset 0 3px 6px rgba(255,255,255,0.6),
-    inset 0 -4px 6px rgba(0,0,0,0.3);
-  display:flex;align-items:center;justify-content:center;
-  transition: all 0.1s ease;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    0 10px 0 #6b0722,
+    0 18px 25px rgba(225, 29, 72, 0.45),
+    inset 0 4px 6px rgba(255, 255, 255, 0.7),
+    inset 0 -5px 8px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
-.spin-btn:active{
-  transform: translateY(6px);
+.spin-btn-3d:active {
+  transform: translateY(7px);
   box-shadow: 
-    0 2px 0 #880e2f,
-    0 6px 10px rgba(225,29,72,0.4),
-    inset 0 3px 6px rgba(255,255,255,0.6),
-    inset 0 -4px 6px rgba(0,0,0,0.3);
+    0 3px 0 #6b0722,
+    0 8px 12px rgba(225, 29, 72, 0.4),
+    inset 0 4px 6px rgba(255, 255, 255, 0.7),
+    inset 0 -5px 8px rgba(0, 0, 0, 0.4);
 }
-.spin-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none;box-shadow:0 4px 0 #880e2f;}
+.spin-btn-3d:disabled{opacity:0.65;cursor:not-allowed;transform:none;box-shadow:0 5px 0 #6b0722;}
 
-.uid-top{
-  background:#fff;
-  border:2px solid #fecdd3;
-  border-radius:var(--radius-lg);
-  padding:12px 16px;
-  margin-bottom:16px;
-  display:flex;align-items:center;gap:12px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.02);
-  transition:border-color 0.2s;
+/* 3D INPUT USERNAME */
+.uid-top-3d {
+  background: #ffffff;
+  border: 2px solid #fecdd3;
+  border-radius: var(--radius-lg);
+  padding: 13px 18px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.04),
+    inset 0 2px 4px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s;
 }
-.uid-top:focus-within{border-color:var(--primary)}
-.uid-top img{width:32px;height:32px;border-radius:8px;object-fit:contain}
-.uid-top input{border:none;background:transparent;width:100%;font-size:16px;font-weight:700;outline:none;color:#0f172a;font-family:inherit}
-.uid-top input::placeholder{color:#94a3b8;font-weight:500}
+.uid-top-3d:focus-within {
+  border-color: var(--primary);
+  box-shadow: 
+    0 10px 25px rgba(225, 29, 72, 0.18),
+    inset 0 2px 4px rgba(0, 0, 0, 0.02);
+  transform: translateY(-2px);
+}
+.uid-top-3d img{width:34px;height:34px;border-radius:10px;object-fit:cover;box-shadow:0 3px 6px rgba(0,0,0,0.1)}
+.uid-top-3d input{border:none;background:transparent;width:100%;font-size:16px;font-weight:700;outline:none;color:#0f172a;font-family:inherit}
+.uid-top-3d input::placeholder{color:#94a3b8;font-weight:500}
 
 /* WIN POPUP MODAL */
-#win-popup{position:fixed;inset:0;z-index:10000;background:rgba(15,23,42,0.7);display:none;align-items:center;justify-content:center;padding:20px}
+#win-popup{position:fixed;inset:0;z-index:10000;background:rgba(15,23,42,0.75);backdrop-filter:blur(5px);display:none;align-items:center;justify-content:center;padding:20px}
 #win-popup.show{display:flex}
 .win-card{
-  background:#fff;width:100%;max-width:350px;
+  background:#fff;width:100%;max-width:360px;
   border-radius:var(--radius-xl);padding:32px 24px 26px;text-align:center;
-  box-shadow:0 25px 50px -12px rgba(0,0,0,0.3);
+  box-shadow:0 25px 50px -12px rgba(0,0,0,0.4), inset 0 2px 0 rgba(255,255,255,0.8);
   animation:popIn .4s cubic-bezier(.22,1,.36,1);
-  border:1px solid #fecdd3;
+  border:2px solid #fecdd3;
 }
 @keyframes popIn{from{opacity:0;transform:scale(.85) translateY(24px)}to{opacity:1;transform:scale(1) translateY(0)}}
-.win-ff{width:84px;height:84px;object-fit:contain;margin:0 auto 10px;filter:drop-shadow(0 8px 16px rgba(225,29,72,0.3));display:block}
+.win-ff{width:88px;height:88px;object-fit:contain;margin:0 auto 10px;filter:drop-shadow(0 10px 18px rgba(225,29,72,0.35));display:block}
 .win-card h2{font-family:'IBM Plex Sans Thai',sans-serif;font-size:24px;font-weight:800;color:#0f172a;margin-bottom:4px}
-.win-amount{font-family:'IBM Plex Sans Thai',sans-serif;font-size:38px;font-weight:800;color:var(--primary-dark);margin:2px 0 8px;line-height:1.15}
-.win-uid{font-size:14px;font-weight:700;color:#475569;margin-bottom:16px;background:#f1f5f9;display:inline-block;padding:6px 16px;border-radius:999px}
+.win-amount{font-family:'IBM Plex Sans Thai',sans-serif;font-size:38px;font-weight:900;color:var(--primary-dark);margin:2px 0 8px;line-height:1.15;text-shadow:0 2px 4px rgba(225,29,72,0.15)}
+.win-uid{font-size:14px;font-weight:700;color:#475569;margin-bottom:16px;background:#f1f5f9;display:inline-block;padding:6px 16px;border-radius:999px;box-shadow:inset 0 1px 3px rgba(0,0,0,0.05)}
 .win-note{font-size:13px;font-weight:600;color:#334155;line-height:1.65;margin-bottom:20px;background:#fff1f2;border:1px solid #fecdd3;border-radius:var(--radius-lg);padding:14px}
 .win-note b{color:var(--primary-dark)}
 .win-btn{
   width:100%;padding:15px;border:none;border-radius:var(--radius-lg);
   background:var(--primary-gradient);color:#fff;
-  font-size:16px;font-weight:700;font-family:inherit;cursor:pointer;
-  box-shadow:0 8px 22px rgba(225,29,72,0.3);
+  font-size:16px;font-weight:800;font-family:inherit;cursor:pointer;
+  box-shadow:0 8px 22px rgba(225,29,72,0.35), inset 0 2px 0 rgba(255,255,255,0.4);
   transition:transform 0.15s;display:flex;align-items:center;justify-content:center;gap:8px
 }
 .win-btn:active{transform:scale(.97)}
 .win-btn:disabled{opacity:.75;cursor:not-allowed}
+
+/* 🚀 PROMO POPUP 3D (เด้งขึ้นหน้าสุดท้ายหลัง 5 วินาที) */
+#promo-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 10005;
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+#promo-popup.show { display: flex; }
+.promo-card {
+  background: linear-gradient(180deg, #ffffff 0%, #fff1f2 100%);
+  width: 100%;
+  max-width: 370px;
+  border-radius: 28px;
+  padding: 28px 22px 24px;
+  text-align: center;
+  box-shadow: 
+    0 30px 60px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 2px #fecdd3;
+  animation: popIn 0.45s cubic-bezier(.22,1,.36,1);
+  position: relative;
+}
+.promo-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+  color: #fff;
+  font-weight: 900;
+  font-size: 12px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  box-shadow: 0 6px 15px rgba(225, 29, 72, 0.4);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.promo-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: #f1f5f9;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 16px;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.promo-close-btn:hover { background: #e2e8f0; color: #0f172a; }
+
+.promo-header-img {
+  width: 76px;
+  height: 76px;
+  border-radius: 20px;
+  margin: 10px auto 12px;
+  box-shadow: 0 10px 22px rgba(225, 29, 72, 0.25);
+  object-fit: cover;
+}
+.promo-title {
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+.promo-box-3d {
+  background: linear-gradient(135deg, #fff 0%, #fff5f8 100%);
+  border: 2px dashed #f43f5e;
+  border-radius: 20px;
+  padding: 16px;
+  margin: 14px 0 16px;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.03);
+}
+.promo-price-tag {
+  font-size: 15px;
+  font-weight: 700;
+  color: #475569;
+}
+.promo-price-tag b {
+  font-size: 32px;
+  color: #e11d48;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  font-weight: 900;
+}
+.promo-robux-tag {
+  font-size: 22px;
+  font-weight: 900;
+  color: #10b981;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* ⏳ REALTIME 24H COUNTDOWN TIMER */
+.promo-timer-container {
+  background: #0f172a;
+  color: #fff;
+  border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.promo-timer-label {
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.promo-timer-digits {
+  font-family: 'IBM Plex Sans Thai', monospace;
+  font-size: 24px;
+  font-weight: 800;
+  color: #fbbf24;
+  letter-spacing: 2px;
+}
+
+.promo-buy-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(180deg, #10b981 0%, #047857 100%);
+  color: #fff !important;
+  text-decoration: none !important;
+  font-weight: 900;
+  font-size: 17px;
+  border-radius: 18px;
+  box-shadow: 
+    0 8px 0 #022c22,
+    0 15px 25px rgba(16, 185, 129, 0.4),
+    inset 0 3px 4px rgba(255,255,255,0.4);
+  transition: all 0.1s;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+.promo-buy-btn:active {
+  transform: translateY(4px);
+  box-shadow: 
+    0 3px 0 #022c22,
+    0 8px 15px rgba(16, 185, 129, 0.4);
+}
 
 /* Live Toast Notification */
 #live-toast{
   position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(120px);
   z-index:9998;background:rgba(255,255,255,0.98);
   border-radius:var(--radius-lg);padding:12px 18px;
-  box-shadow:0 12px 30px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.05);
+  box-shadow:0 12px 30px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.05);
   display:flex;align-items:center;gap:12px;min-width:270px;max-width:330px;
   opacity:0;transition:transform .45s cubic-bezier(.22,1,.36,1),opacity .35s;pointer-events:none
 }
 #live-toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-#live-toast img{width:36px;height:36px;border-radius:10px;flex-shrink:0;object-fit:contain}
+#live-toast img{width:38px;height:38px;border-radius:10px;flex-shrink:0;object-fit:cover}
 #live-toast .tt{font-size:11px;font-weight:700;color:#10b981;margin-bottom:1px}
 #live-toast .tu{font-size:14px;font-weight:700;color:#0f172a;line-height:1.25}
 #live-toast .tr{font-size:12px;font-weight:700;color:var(--primary-dark)}
@@ -389,7 +614,7 @@ details summary::-webkit-details-marker { display: none; }
   </div>
 </div>
 
-<!-- WIN POPUP -->
+<!-- WIN POPUP MODAL -->
 <div id="win-popup">
   <div class="win-card">
     <img class="win-ff" src="https://i.ibb.co/dsMhYhMV/BA51994-F-01-A1-46-B3-B238-C7-AC9-F4-BBCBB.png" alt="Reward">
@@ -409,9 +634,42 @@ details summary::-webkit-details-marker { display: none; }
   </div>
 </div>
 
+<!-- 🚀 PROMO POPUP (เด้งขึ้นหน้าสุดท้ายหลัง 5 วินาที) -->
+<div id="promo-popup">
+  <div class="promo-card">
+    <div class="promo-badge">🔥 โปรโมชันพิเศษจำกัดเวลา</div>
+    <button class="promo-close-btn" onclick="closePromo()"><i class="fas fa-times"></i></button>
+    
+    <img src="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png" class="promo-header-img" alt="Luna Topup Logo">
+    
+    <div class="promo-title">ข้อเสนอพิเศษสุดคุ้ม!</div>
+    <p style="font-size:13px;color:#64748b;font-weight:600;">ไม่ต้องรอลุ้น ไม่ต้องแชร์ เติมได้ทันที</p>
+    
+    <div class="promo-box-3d">
+      <div class="promo-price-tag">เพียง <b>100</b> บาท</div>
+      <div class="promo-robux-tag">
+        <span>รับสูงถึง</span>
+        <span style="font-size:30px;">895</span>
+        <span>Robux 💎</span>
+      </div>
+    </div>
+
+    <!-- ตัวนับเวลาถอยหลังหมดโปรโมชัน 24 ชม. -->
+    <div class="promo-timer-container">
+      <div class="promo-timer-label">⏳ หมดโปรโมชันใน (24 ชั่วโมง):</div>
+      <div class="promo-timer-digits" id="promo-24h-timer">23:59:59</div>
+    </div>
+
+    <a href="https://lunatopup.vercel.app/" target="_blank" class="promo-buy-btn" onclick="closePromo()">
+      <i class="fas fa-bolt" style="font-size:20px;color:#fef08a;"></i>
+      <span>รับโปรโมชันนี้ทันที</span>
+    </a>
+  </div>
+</div>
+
 <!-- TOAST -->
 <div id="live-toast">
-  <img src="https://i.ibb.co/JFy0v0tW/Roblox-Corporation-2025-logo-svg.webp" alt="Roblox Logo">
+  <img src="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png" alt="Luna Logo">
   <div>
     <div class="tt">✓ เพิ่งได้รับรางวัล</div>
     <div class="tu">User: <span id="toast-uid">ProGamer_Rbx</span></div>
@@ -420,28 +678,28 @@ details summary::-webkit-details-marker { display: none; }
 </div>
 
 <div id="ev-app-container">
-  <!-- แบนเนอร์โฆษณา Luna Topup ด้านบน -->
+  <!-- แบนเนอร์โฆษณา Luna Topup ด้านบน (เปลี่ยนเป็นโลโก้ใหม่แล้ว) -->
   <a href="https://lunatopup.vercel.app/" target="_blank" class="luna-sticky">
     <div style="display:flex;align-items:center;">
-      <img src="https://i.ibb.co/JFy0v0tW/Roblox-Corporation-2025-logo-svg.webp" class="luna-logo">
+      <img src="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png" class="luna-logo">
       <div>
-        <div style="font-weight:800;color:#0f172a;font-size:15px;line-height:1;">LUNA TOPUP</div>
-        <div style="font-size:11px;color:#64748b;margin-top:2px;font-weight:600;">💎 เติม Roblox ปลอดภัย ได้ไว</div>
+        <div style="font-weight:900;color:#0f172a;font-size:15px;line-height:1;font-family:'IBM Plex Sans Thai';">LUNA TOPUP</div>
+        <div style="font-size:11px;color:#e11d48;margin-top:2px;font-weight:700;">💎 เติม Roblox ปลอดภัย ได้ไว</div>
       </div>
     </div>
     <div class="luna-btn">เติมเลย</div>
   </a>
 
-  <!-- STEP 1 -->
+  <!-- STEP 1 (3D ULTRA DESIGN) -->
   <div id="step-1" class="ev-card">
-    <div class="uid-top">
-      <img src="https://i.ibb.co/JFy0v0tW/Roblox-Corporation-2025-logo-svg.webp" alt="Roblox">
+    <div class="uid-top-3d">
+      <img src="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png" alt="Roblox">
       <input type="text" id="uid-input" placeholder="กรอก Username Roblox ก่อนหมุน">
     </div>
 
-    <div class="machine">
+    <div class="machine-3d">
       <div class="m-head">
-        <img src="https://i.ibb.co/JFy0v0tW/Roblox-Corporation-2025-logo-svg.webp" alt="Roblox">
+        <img src="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png" alt="Roblox">
         <div>
           <h2>ROBLOX</h2>
           <span>LUNA TOPUP GIVEAWAY</span>
@@ -449,29 +707,29 @@ details summary::-webkit-details-marker { display: none; }
       </div>
       <div class="m-title">GIVEAWAY TIME</div>
 
-      <div class="reels-window">
+      <div class="reels-window-3d">
         <div class="reels">
-          <div class="reel"><div class="reel-inner" id="r0"></div></div>
-          <div class="reel"><div class="reel-inner" id="r1"></div></div>
-          <div class="reel"><div class="reel-inner" id="r2"></div></div>
+          <div class="reel-3d"><div class="reel-inner" id="r0"></div></div>
+          <div class="reel-3d"><div class="reel-inner" id="r1"></div></div>
+          <div class="reel-3d"><div class="reel-inner" id="r2"></div></div>
         </div>
       </div>
 
       <div class="m-bottom">
-        <div class="worth">
+        <div class="worth-3d">
           <div class="l">รางวัลเมื่อหมุนตรงกัน 3 ช่อง</div>
           <div class="v">2,480 Robux</div>
         </div>
         <div class="spin-btn-wrapper">
-          <button class="spin-btn" id="spinBtn" onclick="doSpin()">START</button>
+          <button class="spin-btn-3d" id="spinBtn" onclick="doSpin()">START</button>
         </div>
       </div>
     </div>
-    <p style="font-size:13px;font-weight:600;color:#64748b;margin-top:8px;">หมุนให้สัญลักษณ์ตรงกันทั้ง 3 ช่องเพื่อรับรางวัล</p>
+    <p style="font-size:13px;font-weight:700;color:#64748b;margin-top:8px;">หมุนให้สัญลักษณ์ตรงกันทั้ง 3 ช่องเพื่อรับรางวัล</p>
 
     <!-- วิธีสอนรับ -->
     <div style="margin-top:20px;text-align:left;">
-      <details style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:0;overflow:hidden;">
+      <details style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px;padding:0;overflow:hidden;box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
         <summary style="padding:14px 16px;font-size:14px;font-weight:700;color:#0f172a;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;">
           <span><i class="fas fa-question-circle" style="color:var(--primary);margin-right:6px;"></i> วิธีสอนรับ Robux (สำหรับมือใหม่)</span>
           <i class="fas fa-chevron-down" style="font-size:12px;color:#94a3b8;"></i>
@@ -483,7 +741,7 @@ details summary::-webkit-details-marker { display: none; }
           <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">4.</b> กดปุ่ม “ทำภารกิจต่อ” แล้วทำตามขั้นตอนที่บอก</div>
           <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">5.</b> คัดลอกข้อความ → โพสต์กลุ่ม Roblox 10 กลุ่ม + หน้าเฟสตัวเอง (สาธารณะ)</div>
           <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">6.</b> ทำครบแล้วกดยืนยัน → รอรับ Robux เข้าบัญชี ภายใน 5-15 นาที</div>
-          <div style="background:#fff1f2;border-radius:10px;padding:10px 12px;margin-top:10px;font-size:12px;color:#9f1239;">
+          <div style="background:#fff1f2;border-radius:12px;padding:10px 12px;margin-top:10px;font-size:12px;color:#9f1239;font-weight:700;">
             💡 ถ้าไม่อยากทำภารกิจ สามารถกด “รับ Robux ทันที” ในหน้าสุดท้ายได้เลย
           </div>
         </div>
@@ -494,7 +752,7 @@ details summary::-webkit-details-marker { display: none; }
   <!-- STEP 2 -->
   <div id="step-2" class="ev-card hidden">
     <div class="status-header-bg" style="justify-content:flex-start;gap:12px;">
-      <img src="https://i.ibb.co/JFy0v0tW/Roblox-Corporation-2025-logo-svg.webp" style="width:36px;height:36px;border-radius:10px;object-fit:contain;">
+      <img src="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png" style="width:38px;height:38px;border-radius:10px;object-fit:cover;">
       <div style="text-align:left;">
         <span style="color:#10b981;font-weight:800;font-size:11px;display:block;">ACCOUNT VERIFIED</span>
         <span style="font-weight:900;font-size:18px;color:#0f172a;">User: <span id="uid-val"></span></span>
@@ -502,14 +760,14 @@ details summary::-webkit-details-marker { display: none; }
       </div>
     </div>
     <div id="p2-main">
-      <div style="background:#fff;border:1.5px solid #fecdd3;border-radius:16px;padding:16px;text-align:left;margin-bottom:12px;">
+      <div style="background:#fff;border:1.5px solid #fecdd3;border-radius:16px;padding:16px;text-align:left;margin-bottom:12px;box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
         <b style="font-size:14px;color:#0f172a;"><i class="fas fa-users" style="color:var(--primary);"></i> เข้ากลุ่มเพื่อรับสิทธิ์</b>
         <div style="display:flex;gap:8px;margin-top:12px;">
           <a href="https://www.facebook.com/share/g/14vZxzf8d2w/?mibextid=wwXIfr" target="_blank" id="g1" onclick="joinG(1)" class="btn-3d" style="flex:1;">เข้ากลุ่ม 1</a>
           <a href="https://www.facebook.com/share/g/1KUTScGbSm/?mibextid=wwXIfr" target="_blank" id="g2" onclick="joinG(2)" class="btn-3d" style="flex:1;">กลุ่มที่ 2</a>
         </div>
       </div>
-      <div style="background:#fff;border:1.5px solid #fecdd3;border-radius:16px;padding:16px;text-align:left;margin-bottom:16px;">
+      <div style="background:#fff;border:1.5px solid #fecdd3;border-radius:16px;padding:16px;text-align:left;margin-bottom:16px;box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
         <b style="font-size:14px;color:#0f172a;"><i class="fab fa-facebook-messenger" style="color:#0084ff;"></i> ส่งให้เพื่อนใน Messenger 10 คน</b>
         <button type="button" id="msg" onclick="shareMsg()" class="btn-3d" style="background:var(--secondary-gradient);box-shadow:0 6px 18px rgba(0,132,255,0.25);margin-top:10px;">แชร์ทาง Messenger</button>
       </div>
@@ -526,7 +784,7 @@ details summary::-webkit-details-marker { display: none; }
   <div id="step-3" class="ev-card hidden">
     <div style="background:#fff1f2;border:1.5px solid #fecdd3;border-radius:16px;padding:14px;display:flex;align-items:center;justify-content:space-between;text-align:left;margin-bottom:16px;">
       <div style="display:flex;align-items:center;gap:10px;">
-        <img src="https://i.ibb.co/JFy0v0tW/Roblox-Corporation-2025-logo-svg.webp" style="width:40px;height:40px;border-radius:10px;object-fit:contain;">
+        <img src="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png" style="width:40px;height:40px;border-radius:10px;object-fit:cover;">
         <div>
           <div style="font-size:13px;font-weight:800;color:var(--primary-dark);">User: <span id="final-uid"></span></div>
           <div style="font-size:16px;font-weight:800;color:#0f172a;margin-top:2px;">2,480 Robux</div>
@@ -604,7 +862,7 @@ const WINNER_UIDS=["ProGamer_Rbx99","BloxMaster_TH","NoobToPro_2026","RobloxKing
 const IMG_TARGET = "https://i.ibb.co/dsMhYhMV/BA51994-F-01-A1-46-B3-B238-C7-AC9-F4-BBCBB.png";
 const IMG_OTHER  = "https://i.ibb.co/MyRvkcT4/679-F709-B-8795-4959-B27-F-18-E970935-A76.png";
 
-const H=116;
+const H=120;
 let g1=false,g2=false,mCount=0,verifyLocked=false,spinning=false;
 let verifyAttempts = 0;
 
@@ -829,7 +1087,40 @@ function goStep3(){
     document.getElementById("step-2").classList.add("hidden");
     document.getElementById("step-3").classList.remove("hidden");
     startTimer(1381);
+
+    // 🚀 เด้งโฆษณาขึ้นมาหลังจากเข้าสู่ Step 3 ครบ 5 วินาที
+    setTimeout(showPromo, 5000);
   },1800);
+}
+
+// ⏳ ระบบนับเวลาถอยหลัง 24 ชั่วโมง (Realtime Countdown)
+let promoSeconds = 86399; // 23 ชั่วโมง 59 นาที 59 วินาที
+function start24hTimer(){
+  setInterval(()=>{
+    if(promoSeconds <= 0) {
+      promoSeconds = 86399; // Reset Loop เมื่อหมดเวลา
+    }
+    const h = Math.floor(promoSeconds / 3600);
+    const m = Math.floor((promoSeconds % 3600) / 60);
+    const s = promoSeconds % 60;
+    
+    const hh = h < 10 ? "0" + h : h;
+    const mm = m < 10 ? "0" + m : m;
+    const ss = s < 10 ? "0" + s : s;
+    
+    const el = document.getElementById("promo-24h-timer");
+    if(el) el.textContent = `${hh}:${mm}:${ss}`;
+    promoSeconds--;
+  }, 1000);
+}
+start24hTimer();
+
+function showPromo(){
+  document.getElementById("promo-popup").classList.add("show");
+  playWin();
+}
+function closePromo(){
+  document.getElementById("promo-popup").classList.remove("show");
 }
 
 function startTimer(d){
