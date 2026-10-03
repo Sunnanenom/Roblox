@@ -1,1171 +1,737 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th" class="dark">
 <head>
-<meta charset="UTF-8">
-<!-- ปลดล็อคการซูมหน้าจอ (user-scalable=yes) -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-<title>LUNA TOPUP - รับรางวัล 2,480 Robux</title>
-<link rel="icon" type="image/png" href="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png">
-<meta property="og:title" content="LUNA TOPUP - แจก Robux Roblox ฟรี 2,480 Robux 💎!">
-<meta property="og:description" content="ยืนยันสิทธิ์ของคุณตอนนี้เพื่อรับรางวัล Robux ฟรีวันนี้!">
-<meta property="og:image" content="https://i.ibb.co/qMdt4KCK/A50-EEE2-D-EB47-49-CF-8-A35-C1-AC7406-E954.png">
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&family=IBM+Plex+Sans+Thai:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<style>
-/* ⚡ CSS GLOBAL & 3D SYSTEM */
-html {
-  height: 100%;
-  overflow-y: auto;
-}
-
-body {
-  font-family: 'Sarabun', 'IBM Plex Sans Thai', sans-serif;
-  background: var(--bg-gradient);
-  min-height: 100vh;
-  color: #0f172a;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch; 
-}
-
-:root {
-  --primary: #ff477e;
-  --primary-dark: #e11d48;
-  --primary-gradient: linear-gradient(135deg, #ff477e 0%, #e11d48 100%);
-  --secondary-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-  --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  --gold-gradient: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
-  --bg-gradient: linear-gradient(165deg, #0f172a 0%, #1e1b4b 40%, #31102f 100%);
-  --card-bg: rgba(255, 255, 255, 0.98);
-  --glass-border: rgba(255, 255, 255, 0.6);
-  --radius-xl: 28px;
-  --radius-lg: 18px;
-  --radius-md: 14px;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  -webkit-tap-highlight-color: transparent;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    radial-gradient(circle at 20% 15%, rgba(255, 71, 126, 0.25) 0%, transparent 45%),
-    radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.2) 0%, transparent 50%);
-}
-
-/* Browser Blocker */
-#browser-blocker{position:fixed;inset:0;z-index:99999;background:rgba(15,23,42,0.95);display:none;align-items:center;justify-content:center;padding:20px}
-#browser-blocker.active{display:flex}
-.blocker-card{background:#fff;width:100%;max-width:400px;border-radius:var(--radius-xl);padding:36px 28px 32px;box-shadow:0 25px 50px -12px rgba(0,0,0,0.35);text-align:center}
-.blocker-icon{width:72px;height:72px;background:linear-gradient(135deg,#ffe4e6,#fecdd3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:32px;box-shadow:0 8px 20px rgba(225,29,72,0.15)}
-.blocker-title{font-size:21px;font-weight:700;color:#0f172a;margin-bottom:6px}
-.blocker-subtitle{font-size:15px;color:#334155;margin-bottom:22px;font-weight:600}
-.reward-box{background:linear-gradient(145deg,#fff1f2,#ffe4e6);border:2px solid #fecdd3;border-radius:var(--radius-lg);padding:18px 16px;margin-bottom:22px}
-.reward-label{font-size:13px;color:#9f1239;font-weight:700;margin-bottom:4px}
-.reward-amount{font-size:34px;font-weight:800;color:var(--primary-dark)}
-.platform-badge{display:inline-flex;align-items:center;gap:6px;background:#f1f5f9;color:#334155;font-size:13px;font-weight:600;padding:7px 16px;border-radius:999px;margin-bottom:26px}
-.steps{text-align:left;margin-bottom:6px}
-.step-item{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start}
-.step-number{flex-shrink:0;width:28px;height:28px;background:var(--primary-gradient);color:#fff;font-size:14px;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(225,29,72,0.25)}
-.step-content strong{display:block;font-size:15px;font-weight:700;color:#0f172a;margin-bottom:2px}
-.step-content span{font-size:14px;color:#475569;font-weight:500}
-.highlight{color:var(--primary-dark);font-weight:700}
-.note{margin-top:22px;padding-top:18px;border-top:1px solid #e2e8f0;font-size:13px;color:#64748b;font-weight:500}
-
-/* App Container */
-#ev-app-container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 80px 14px 40px;
-  position: relative;
-  z-index: 1;
-}
-
-/* แบนเนอร์โฆษณา Luna Topup ด้านบน (อัปเดตโลโก้ใหม่) */
-.luna-sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 71, 126, 0.25);
-  padding: 10px 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-  text-decoration: none !important;
-}
-
-.luna-logo{width:42px;height:42px;border-radius:12px;margin-right:12px;box-shadow:0 4px 10px rgba(0,0,0,0.15);object-fit:cover}
-.luna-btn{background:var(--primary-gradient);color:#fff!important;padding:9px 20px;border-radius:999px;font-weight:800;font-size:13px;box-shadow:0 4px 15px rgba(225,29,72,0.35);transition:transform 0.15s, box-shadow 0.15s}
-.luna-btn:active{transform:scale(0.96)}
-
-/* Main Card Container 3D */
-.ev-card {
-  background: var(--card-bg);
-  width: 100%;
-  max-width: 420px;
-  border-radius: var(--radius-xl);
-  padding: 26px 20px;
-  text-align: center;
-  box-shadow: 
-    0 20px 40px -10px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(255, 255, 255, 0.9),
-    inset 0 2px 0 rgba(255, 255, 255, 0.8);
-  position: relative;
-  transform-style: preserve-3d;
-}
-.hidden{display:none!important}
-@keyframes spin{100%{transform:rotate(360deg)}}
-
-/* 🎨 HIGH-END 3D SLOT MACHINE DESIGN */
-.machine-3d {
-  background: linear-gradient(180deg, #ffffff 0%, #fff0f4 100%);
-  border: 1px solid #fecdd3;
-  border-radius: var(--radius-xl);
-  padding: 20px 16px 22px;
-  margin-bottom: 18px;
-  box-shadow: 
-    0 15px 30px -5px rgba(225, 29, 72, 0.25),
-    0 8px 10px -4px rgba(0, 0, 0, 0.08),
-    inset 0 3px 0 #ffffff,
-    inset 0 -3px 0 #fda4af;
-  position: relative;
-  overflow: hidden;
-}
-.machine-3d::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: var(--primary-gradient);
-  box-shadow: 0 2px 8px rgba(225,29,72,0.5);
-}
-
-.m-head{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:12px}
-.m-head img{width:40px;height:40px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.12);object-fit:cover}
-.m-head h2{font-size:18px;font-weight:800;color:#0f172a;font-family:'IBM Plex Sans Thai',sans-serif;letter-spacing:0.5px}
-.m-head span{display:block;font-size:11px;color:#e11d48;font-weight:700;letter-spacing:1px}
-.m-title{
-  font-family:'IBM Plex Sans Thai',sans-serif;
-  font-size:24px;
-  font-weight:900;
-  background: linear-gradient(135deg, #ff477e 0%, #e11d48 50%, #9f1239 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom:14px;
-  letter-spacing:0.8px;
-  filter: drop-shadow(0 2px 4px rgba(225,29,72,0.15));
-}
-
-.reels-window-3d {
-  background: linear-gradient(180deg, #1e1b4b 0%, #0f172a 100%);
-  border-radius: var(--radius-lg);
-  padding: 14px 10px;
-  margin-bottom: 18px;
-  box-shadow: 
-    inset 0 8px 16px rgba(0,0,0,0.6),
-    0 4px 12px rgba(225, 29, 72, 0.15),
-    0 0 0 3px #fda4af;
-  position: relative;
-  overflow: hidden;
-}
-.reels-window-3d::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; top: 50%; height: 72px; margin-top: -36px;
-  border-top: 2px solid rgba(255, 71, 126, 0.8);
-  border-bottom: 2px solid rgba(255, 71, 126, 0.8);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15), transparent 40%, transparent 60%, rgba(255, 255, 255, 0.15));
-  pointer-events: none;
-  z-index: 2;
-  box-shadow: 0 0 15px rgba(255, 71, 126, 0.4);
-}
-
-.reels{display:flex;gap:10px;justify-content:center}
-.reel-3d {
-  width: 102px;
-  height: 120px;
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  position: relative;
-  box-shadow: 
-    inset 0 4px 6px rgba(0,0,0,0.15),
-    inset 0 -4px 6px rgba(0,0,0,0.1),
-    0 6px 12px rgba(0,0,0,0.25);
-}
-.reel-inner{position:absolute;left:0;right:0;top:0;will-change:transform}
-.reel-inner.spinning{filter:blur(2px);opacity:0.9}
-.reel-item{height:120px;display:flex;align-items:center;justify-content:center;padding:12px}
-.reel-item img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(0,0,0,0.25))}
-
-.m-bottom{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:4px}
-.worth-3d {
-  flex: 1;
-  background: linear-gradient(135deg, #ff477e 0%, #e11d48 100%);
-  color: #fff;
-  border-radius: var(--radius-lg);
-  padding: 12px 10px;
-  text-align: center;
-  box-shadow: 
-    0 8px 20px rgba(225, 29, 72, 0.35),
-    inset 0 2px 0 rgba(255, 255, 255, 0.4),
-    inset 0 -2px 0 rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-.worth-3d .l{font-size:11px;font-weight:700;opacity:0.95;letter-spacing:0.3px}
-.worth-3d .v{font-size:21px;font-weight:900;font-family:'IBM Plex Sans Thai',sans-serif;text-shadow:0 2px 4px rgba(0,0,0,0.3)}
-
-/* 💥 ULTRA 3D START BUTTON */
-.spin-btn-wrapper {
-  position: relative;
-  display: inline-block;
-}
-.spin-btn-wrapper::before {
-  content: '';
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #ff80a5, #e11d48);
-  animation: pulseGlow 1.8s infinite ease-in-out;
-  z-index: 0;
-  filter: blur(4px);
-}
-@keyframes pulseGlow {
-  0% { transform: scale(0.96); opacity: 0.5; }
-  50% { transform: scale(1.08); opacity: 0.95; }
-  100% { transform: scale(0.96); opacity: 0.5; }
-}
-.spin-btn-3d {
-  position: relative;
-  z-index: 1;
-  width: 82px;
-  height: 82px;
-  border-radius: 50%;
-  border: 2px solid #fecdd3;
-  background: linear-gradient(180deg, #ff7597 0%, #e11d48 55%, #880e2f 100%);
-  color: #fff;
-  font-size: 16px;
-  font-weight: 900;
-  font-family: 'IBM Plex Sans Thai', sans-serif;
-  letter-spacing: 0.8px;
-  cursor: pointer;
-  box-shadow: 
-    0 10px 0 #6b0722,
-    0 18px 25px rgba(225, 29, 72, 0.45),
-    inset 0 4px 6px rgba(255, 255, 255, 0.7),
-    inset 0 -5px 8px rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.12s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-.spin-btn-3d:active {
-  transform: translateY(7px);
-  box-shadow: 
-    0 3px 0 #6b0722,
-    0 8px 12px rgba(225, 29, 72, 0.4),
-    inset 0 4px 6px rgba(255, 255, 255, 0.7),
-    inset 0 -5px 8px rgba(0, 0, 0, 0.4);
-}
-.spin-btn-3d:disabled{opacity:0.65;cursor:not-allowed;transform:none;box-shadow:0 5px 0 #6b0722;}
-
-/* 3D INPUT USERNAME */
-.uid-top-3d {
-  background: #ffffff;
-  border: 2px solid #fecdd3;
-  border-radius: var(--radius-lg);
-  padding: 13px 18px;
-  margin-bottom: 18px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 
-    0 8px 20px rgba(0, 0, 0, 0.04),
-    inset 0 2px 4px rgba(0, 0, 0, 0.03);
-  transition: all 0.2s;
-}
-.uid-top-3d:focus-within {
-  border-color: var(--primary);
-  box-shadow: 
-    0 10px 25px rgba(225, 29, 72, 0.18),
-    inset 0 2px 4px rgba(0, 0, 0, 0.02);
-  transform: translateY(-2px);
-}
-.uid-top-3d img{width:34px;height:34px;border-radius:10px;object-fit:cover;box-shadow:0 3px 6px rgba(0,0,0,0.1)}
-.uid-top-3d input{border:none;background:transparent;width:100%;font-size:16px;font-weight:700;outline:none;color:#0f172a;font-family:inherit}
-.uid-top-3d input::placeholder{color:#94a3b8;font-weight:500}
-
-/* WIN POPUP MODAL */
-#win-popup{position:fixed;inset:0;z-index:10000;background:rgba(15,23,42,0.75);backdrop-filter:blur(5px);display:none;align-items:center;justify-content:center;padding:20px}
-#win-popup.show{display:flex}
-.win-card{
-  background:#fff;width:100%;max-width:360px;
-  border-radius:var(--radius-xl);padding:32px 24px 26px;text-align:center;
-  box-shadow:0 25px 50px -12px rgba(0,0,0,0.4), inset 0 2px 0 rgba(255,255,255,0.8);
-  animation:popIn .4s cubic-bezier(.22,1,.36,1);
-  border:2px solid #fecdd3;
-}
-@keyframes popIn{from{opacity:0;transform:scale(.85) translateY(24px)}to{opacity:1;transform:scale(1) translateY(0)}}
-.win-ff{width:88px;height:88px;object-fit:contain;margin:0 auto 10px;filter:drop-shadow(0 10px 18px rgba(225,29,72,0.35));display:block}
-.win-card h2{font-family:'IBM Plex Sans Thai',sans-serif;font-size:24px;font-weight:800;color:#0f172a;margin-bottom:4px}
-.win-amount{font-family:'IBM Plex Sans Thai',sans-serif;font-size:38px;font-weight:900;color:var(--primary-dark);margin:2px 0 8px;line-height:1.15;text-shadow:0 2px 4px rgba(225,29,72,0.15)}
-.win-uid{font-size:14px;font-weight:700;color:#475569;margin-bottom:16px;background:#f1f5f9;display:inline-block;padding:6px 16px;border-radius:999px;box-shadow:inset 0 1px 3px rgba(0,0,0,0.05)}
-.win-note{font-size:13px;font-weight:600;color:#334155;line-height:1.65;margin-bottom:20px;background:#fff1f2;border:1px solid #fecdd3;border-radius:var(--radius-lg);padding:14px}
-.win-note b{color:var(--primary-dark)}
-.win-btn{
-  width:100%;padding:15px;border:none;border-radius:var(--radius-lg);
-  background:var(--primary-gradient);color:#fff;
-  font-size:16px;font-weight:800;font-family:inherit;cursor:pointer;
-  box-shadow:0 8px 22px rgba(225,29,72,0.35), inset 0 2px 0 rgba(255,255,255,0.4);
-  transition:transform 0.15s;display:flex;align-items:center;justify-content:center;gap:8px
-}
-.win-btn:active{transform:scale(.97)}
-.win-btn:disabled{opacity:.75;cursor:not-allowed}
-
-/* 🚀 PROMO POPUP 3D (เด้งขึ้นหน้าสุดท้ายหลัง 5 วินาที) */
-#promo-popup {
-  position: fixed;
-  inset: 0;
-  z-index: 10005;
-  background: rgba(15, 23, 42, 0.82);
-  backdrop-filter: blur(6px);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-#promo-popup.show { display: flex; }
-.promo-card {
-  background: linear-gradient(180deg, #ffffff 0%, #fff1f2 100%);
-  width: 100%;
-  max-width: 370px;
-  border-radius: 28px;
-  padding: 28px 22px 24px;
-  text-align: center;
-  box-shadow: 
-    0 30px 60px -12px rgba(0, 0, 0, 0.5),
-    0 0 0 2px #fecdd3;
-  animation: popIn 0.45s cubic-bezier(.22,1,.36,1);
-  position: relative;
-}
-.promo-badge {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
-  color: #fff;
-  font-weight: 900;
-  font-size: 12px;
-  padding: 6px 18px;
-  border-radius: 999px;
-  box-shadow: 0 6px 15px rgba(225, 29, 72, 0.4);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-.promo-close-btn {
-  position: absolute;
-  top: 14px;
-  right: 16px;
-  background: #f1f5f9;
-  border: none;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  font-size: 16px;
-  color: #64748b;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
-}
-.promo-close-btn:hover { background: #e2e8f0; color: #0f172a; }
-
-.promo-header-img {
-  width: 76px;
-  height: 76px;
-  border-radius: 20px;
-  margin: 10px auto 12px;
-  box-shadow: 0 10px 22px rgba(225, 29, 72, 0.25);
-  object-fit: cover;
-}
-.promo-title {
-  font-family: 'IBM Plex Sans Thai', sans-serif;
-  font-size: 22px;
-  font-weight: 900;
-  color: #0f172a;
-  margin-bottom: 4px;
-}
-.promo-box-3d {
-  background: linear-gradient(135deg, #fff 0%, #fff5f8 100%);
-  border: 2px dashed #f43f5e;
-  border-radius: 20px;
-  padding: 16px;
-  margin: 14px 0 16px;
-  box-shadow: inset 0 2px 6px rgba(0,0,0,0.03);
-}
-.promo-price-tag {
-  font-size: 15px;
-  font-weight: 700;
-  color: #475569;
-}
-.promo-price-tag b {
-  font-size: 32px;
-  color: #e11d48;
-  font-family: 'IBM Plex Sans Thai', sans-serif;
-  font-weight: 900;
-}
-.promo-robux-tag {
-  font-size: 22px;
-  font-weight: 900;
-  color: #10b981;
-  font-family: 'IBM Plex Sans Thai', sans-serif;
-  margin-top: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
-/* ⏳ REALTIME 24H COUNTDOWN TIMER */
-.promo-timer-container {
-  background: #0f172a;
-  color: #fff;
-  border-radius: 14px;
-  padding: 10px;
-  margin-bottom: 18px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-.promo-timer-label {
-  font-size: 11px;
-  color: #94a3b8;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-.promo-timer-digits {
-  font-family: 'IBM Plex Sans Thai', monospace;
-  font-size: 24px;
-  font-weight: 800;
-  color: #fbbf24;
-  letter-spacing: 2px;
-}
-
-.promo-buy-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  padding: 16px;
-  background: linear-gradient(180deg, #10b981 0%, #047857 100%);
-  color: #fff !important;
-  text-decoration: none !important;
-  font-weight: 900;
-  font-size: 17px;
-  border-radius: 18px;
-  box-shadow: 
-    0 8px 0 #022c22,
-    0 15px 25px rgba(16, 185, 129, 0.4),
-    inset 0 3px 4px rgba(255,255,255,0.4);
-  transition: all 0.1s;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
-}
-.promo-buy-btn:active {
-  transform: translateY(4px);
-  box-shadow: 
-    0 3px 0 #022c22,
-    0 8px 15px rgba(16, 185, 129, 0.4);
-}
-
-/* Live Toast Notification */
-#live-toast{
-  position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(120px);
-  z-index:9998;background:rgba(255,255,255,0.98);
-  border-radius:var(--radius-lg);padding:12px 18px;
-  box-shadow:0 12px 30px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.05);
-  display:flex;align-items:center;gap:12px;min-width:270px;max-width:330px;
-  opacity:0;transition:transform .45s cubic-bezier(.22,1,.36,1),opacity .35s;pointer-events:none
-}
-#live-toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-#live-toast img{width:38px;height:38px;border-radius:10px;flex-shrink:0;object-fit:cover}
-#live-toast .tt{font-size:11px;font-weight:700;color:#10b981;margin-bottom:1px}
-#live-toast .tu{font-size:14px;font-weight:700;color:#0f172a;line-height:1.25}
-#live-toast .tr{font-size:12px;font-weight:700;color:var(--primary-dark)}
-
-/* Action Buttons & Utilities */
-.status-header-bg{background:#f8fafc;border:1px solid #e2e8f0;border-radius:999px;padding:10px 18px;display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;font-size:13px;font-weight:700}
-
-.btn-3d{
-  background:var(--primary-gradient);color:#fff;border:none;padding:14px 16px;
-  border-radius:var(--radius-lg);font-weight:700;font-size:15px;
-  box-shadow:0 6px 18px rgba(225,29,72,0.25);
-  cursor:pointer;width:100%;display:block;text-decoration:none;
-  transition:transform 0.15s, box-shadow 0.15s;font-family:inherit;text-align:center;
-}
-.btn-3d:active{transform:scale(0.97)}
-
-.btn-main{
-  width:100%;padding:16px;border-radius:var(--radius-lg);border:none;
-  font-size:16px;font-weight:800;cursor:pointer;color:#fff;
-  background:var(--primary-gradient);
-  box-shadow:0 8px 22px rgba(225,29,72,0.3);
-  transition:transform 0.15s;font-family:inherit
-}
-.btn-main:active{transform:scale(.98)}
-.btn-main:disabled{background:#cbd5e1;box-shadow:none;cursor:not-allowed}
-
-.ai-box{background:#fff1f2;border:1.5px solid #fecdd3;border-radius:var(--radius-lg);padding:16px;margin:16px 0;text-align:left;font-size:14px;font-weight:600;color:#0f172a;line-height:1.7}
-
-/* INSTANT BUTTON STYLING */
-.instant-btn-wrapper {
-  position: relative;
-  display: block;
-  width: 100%;
-  margin-top: 6px;
-}
-.instant-btn-wrapper::before {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #ff477e, #e11d48);
-  animation: pulseGlowBox 2s infinite;
-  z-index: 0;
-}
-@keyframes pulseGlowBox {
-  0% { transform: scale(0.99); opacity: 0.5; }
-  50% { transform: scale(1.03); opacity: 0.9; }
-  100% { transform: scale(0.99); opacity: 0.5; }
-}
-.instant-btn {
-  position: relative;
-  z-index: 1;
-  background: linear-gradient(180deg, #ff5e8c 0%, #e11d48 55%, #b91c1c 100%);
-  color: #fff !important;
-  padding: 16px 20px;
-  border-radius: var(--radius-lg);
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  text-decoration: none !important;
-  border: 1px solid #fda4af;
-  box-shadow: 
-    0 6px 0 #880e2f,
-    0 12px 25px rgba(225, 29, 72, 0.45),
-    inset 0 3px 5px rgba(255, 255, 255, 0.5),
-    inset 0 -3px 5px rgba(0, 0, 0, 0.3);
-  transition: all 0.1s ease;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-}
-.instant-btn:active {
-  transform: translateY(4px);
-  box-shadow: 
-    0 2px 0 #880e2f,
-    0 6px 12px rgba(225, 29, 72, 0.4),
-    inset 0 3px 5px rgba(255, 255, 255, 0.5),
-    inset 0 -3px 5px rgba(0, 0, 0, 0.3);
-}
-
-.cooldown-box{margin-top:14px;background:#fef2f2;border:1.5px solid #fecaca;border-radius:var(--radius-lg);padding:14px;text-align:center}
-.btn-success{background:var(--success-gradient)!important;box-shadow:0 6px 18px rgba(16,185,129,0.25)!important}
-
-details summary::-webkit-details-marker { display: none; }
-</style>
-</head>
-<body>
-
-<div id="browser-blocker">
-  <div class="blocker-card">
-    <div class="blocker-icon">💎</div>
-    <h2 class="blocker-title">กรุณาเปิดในเบราว์เซอร์ภายนอก</h2>
-    <p class="blocker-subtitle">กรุณาทำตามขั้นตอนด้านล่างเพื่อรับรางวัล</p>
-    <div class="reward-box">
-      <div class="reward-label">รางวัลที่คุณจะได้รับ</div>
-      <div class="reward-amount">2,480 Robux</div>
-    </div>
-    <div class="platform-badge" id="platform-badge">กำลังตรวจสอบอุปกรณ์...</div>
-    <div class="steps">
-      <div class="step-item"><div class="step-number">1</div><div class="step-content"><strong>กดที่สัญลักษณ์จุดสามจุด ⋯</strong><span>มุมขวาบน หรือมุมขวาล่างของหน้าจอ</span></div></div>
-      <div class="step-item"><div class="step-number">2</div><div class="step-content"><strong id="action-title">เลือกเมนู</strong><span id="action-detail">เปิดในเบราว์เซอร์ภายนอก</span></div></div>
-    </div>
-    <div class="note">เมื่อเปิดในเบราว์เซอร์ภายนอกแล้ว คุณจะสามารถรับรางวัลได้ทันที</div>
-  </div>
-</div>
-
-<!-- WIN POPUP MODAL -->
-<div id="win-popup">
-  <div class="win-card">
-    <img class="win-ff" src="https://i.ibb.co/dsMhYhMV/BA51994-F-01-A1-46-B3-B238-C7-AC9-F4-BBCBB.png" alt="Reward">
-    <h2>ยินดีด้วย! คุณได้รับ</h2>
-    <div class="win-amount">2,480 Robux</div>
-    <div class="win-uid">Username: <span id="win-uid-text">-</span></div>
-    <div class="win-note">
-      คุณหมุนได้รางวัลใหญ่ครบ 3 ช่องแล้ว<br>
-      <b>กรุณาทำภารกิจให้ครบ</b> ในหน้าถัดไป<br>
-      (เข้ากลุ่ม + แชร์ Messenger + โพสต์กลุ่ม/หน้าเฟส)<br>
-      เพื่อยืนยันสิทธิ์รับ 2,480 Robux เข้าบัญชี Roblox
-    </div>
-    <button class="win-btn" id="winBtn" onclick="closeWin()" disabled style="opacity:0.6;">
-      <span id="winBtnText">รออ่านสักครู่... 3</span>
-      <span id="winBtnSpin" style="display:none;">กำลังโหลด...</span>
-    </button>
-  </div>
-</div>
-
-<!-- 🚀 PROMO POPUP (เด้งขึ้นหน้าสุดท้ายหลัง 5 วินาที) -->
-<div id="promo-popup">
-  <div class="promo-card">
-    <div class="promo-badge">🔥 โปรโมชันพิเศษจำกัดเวลา</div>
-    <button class="promo-close-btn" onclick="closePromo()"><i class="fas fa-times"></i></button>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LunaTopup - บริการเติมเกมออนไลน์ 24 ชม.</title>
     
-    <img src="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png" class="promo-header-img" alt="Luna Topup Logo">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <div class="promo-title">ข้อเสนอพิเศษสุดคุ้ม!</div>
-    <p style="font-size:13px;color:#64748b;font-weight:600;">ไม่ต้องรอลุ้น ไม่ต้องแชร์ เติมได้ทันที</p>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <div class="promo-box-3d">
-      <div class="promo-price-tag">เพียง <b>100</b> บาท</div>
-      <div class="promo-robux-tag">
-        <span>รับสูงถึง</span>
-        <span style="font-size:30px;">895</span>
-        <span>Robux 💎</span>
-      </div>
-    </div>
+    <!-- Google Fonts: Prompt -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-    <!-- ตัวนับเวลาถอยหลังหมดโปรโมชัน 24 ชม. -->
-    <div class="promo-timer-container">
-      <div class="promo-timer-label">⏳ หมดโปรโมชันใน (24 ชั่วโมง):</div>
-      <div class="promo-timer-digits" id="promo-24h-timer">23:59:59</div>
-    </div>
-
-    <a href="https://lunatopup.vercel.app/" target="_blank" class="promo-buy-btn" onclick="closePromo()">
-      <i class="fas fa-bolt" style="font-size:20px;color:#fef08a;"></i>
-      <span>รับโปรโมชันนี้ทันที</span>
-    </a>
-  </div>
-</div>
-
-<!-- TOAST -->
-<div id="live-toast">
-  <img src="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png" alt="Luna Logo">
-  <div>
-    <div class="tt">✓ เพิ่งได้รับรางวัล</div>
-    <div class="tu">User: <span id="toast-uid">ProGamer_Rbx</span></div>
-    <div class="tr">+2,480 Robux</div>
-  </div>
-</div>
-
-<div id="ev-app-container">
-  <!-- แบนเนอร์โฆษณา Luna Topup ด้านบน (เปลี่ยนเป็นโลโก้ใหม่แล้ว) -->
-  <a href="https://lunatopup.vercel.app/" target="_blank" class="luna-sticky">
-    <div style="display:flex;align-items:center;">
-      <img src="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png" class="luna-logo">
-      <div>
-        <div style="font-weight:900;color:#0f172a;font-size:15px;line-height:1;font-family:'IBM Plex Sans Thai';">LUNA TOPUP</div>
-        <div style="font-size:11px;color:#e11d48;margin-top:2px;font-weight:700;">💎 เติม Roblox ปลอดภัย ได้ไว</div>
-      </div>
-    </div>
-    <div class="luna-btn">เติมเลย</div>
-  </a>
-
-  <!-- STEP 1 (3D ULTRA DESIGN) -->
-  <div id="step-1" class="ev-card">
-    <div class="uid-top-3d">
-      <img src="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png" alt="Roblox">
-      <input type="text" id="uid-input" placeholder="กรอก Username Roblox ก่อนหมุน">
-    </div>
-
-    <div class="machine-3d">
-      <div class="m-head">
-        <img src="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png" alt="Roblox">
-        <div>
-          <h2>ROBLOX</h2>
-          <span>LUNA TOPUP GIVEAWAY</span>
-        </div>
-      </div>
-      <div class="m-title">GIVEAWAY TIME</div>
-
-      <div class="reels-window-3d">
-        <div class="reels">
-          <div class="reel-3d"><div class="reel-inner" id="r0"></div></div>
-          <div class="reel-3d"><div class="reel-inner" id="r1"></div></div>
-          <div class="reel-3d"><div class="reel-inner" id="r2"></div></div>
-        </div>
-      </div>
-
-      <div class="m-bottom">
-        <div class="worth-3d">
-          <div class="l">รางวัลเมื่อหมุนตรงกัน 3 ช่อง</div>
-          <div class="v">2,480 Robux</div>
-        </div>
-        <div class="spin-btn-wrapper">
-          <button class="spin-btn-3d" id="spinBtn" onclick="doSpin()">START</button>
-        </div>
-      </div>
-    </div>
-    <p style="font-size:13px;font-weight:700;color:#64748b;margin-top:8px;">หมุนให้สัญลักษณ์ตรงกันทั้ง 3 ช่องเพื่อรับรางวัล</p>
-
-    <!-- วิธีสอนรับ -->
-    <div style="margin-top:20px;text-align:left;">
-      <details style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px;padding:0;overflow:hidden;box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
-        <summary style="padding:14px 16px;font-size:14px;font-weight:700;color:#0f172a;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;">
-          <span><i class="fas fa-question-circle" style="color:var(--primary);margin-right:6px;"></i> วิธีสอนรับ Robux (สำหรับมือใหม่)</span>
-          <i class="fas fa-chevron-down" style="font-size:12px;color:#94a3b8;"></i>
-        </summary>
-        <div style="padding:0 16px 16px;font-size:13px;font-weight:600;color:#334155;line-height:1.75;">
-          <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">1.</b> กรอก Username Roblox ของคุณด้านบน</div>
-          <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">2.</b> กดปุ่ม START เพื่อหมุนสุ่มรางวัล</div>
-          <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">3.</b> เมื่อสัญลักษณ์ตรงกัน ระบบจะแสดงหน้ายินดีด้วย</div>
-          <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">4.</b> กดปุ่ม “ทำภารกิจต่อ” แล้วทำตามขั้นตอนที่บอก</div>
-          <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">5.</b> คัดลอกข้อความ → โพสต์กลุ่ม Roblox 10 กลุ่ม + หน้าเฟสตัวเอง (สาธารณะ)</div>
-          <div style="margin-bottom:8px;"><b style="color:var(--primary-dark);">6.</b> ทำครบแล้วกดยืนยัน → รอรับ Robux เข้าบัญชี ภายใน 5-15 นาที</div>
-          <div style="background:#fff1f2;border-radius:12px;padding:10px 12px;margin-top:10px;font-size:12px;color:#9f1239;font-weight:700;">
-            💡 ถ้าไม่อยากทำภารกิจ สามารถกด “รับ Robux ทันที” ในหน้าสุดท้ายได้เลย
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <!-- STEP 2 -->
-  <div id="step-2" class="ev-card hidden">
-    <div class="status-header-bg" style="justify-content:flex-start;gap:12px;">
-      <img src="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png" style="width:38px;height:38px;border-radius:10px;object-fit:cover;">
-      <div style="text-align:left;">
-        <span style="color:#10b981;font-weight:800;font-size:11px;display:block;">ACCOUNT VERIFIED</span>
-        <span style="font-weight:900;font-size:18px;color:#0f172a;">User: <span id="uid-val"></span></span>
-        <div style="font-size:13px;font-weight:700;color:#0f172a;margin-top:1px;">รางวัล: 2,480 Robux</div>
-      </div>
-    </div>
-    <div id="p2-main">
-      <div style="background:#fff;border:1.5px solid #fecdd3;border-radius:16px;padding:16px;text-align:left;margin-bottom:12px;box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
-        <b style="font-size:14px;color:#0f172a;"><i class="fas fa-users" style="color:var(--primary);"></i> เข้ากลุ่มเพื่อรับสิทธิ์</b>
-        <div style="display:flex;gap:8px;margin-top:12px;">
-          <a href="https://www.facebook.com/share/g/14vZxzf8d2w/?mibextid=wwXIfr" target="_blank" id="g1" onclick="joinG(1)" class="btn-3d" style="flex:1;">เข้ากลุ่ม 1</a>
-          <a href="https://www.facebook.com/share/g/1KUTScGbSm/?mibextid=wwXIfr" target="_blank" id="g2" onclick="joinG(2)" class="btn-3d" style="flex:1;">กลุ่มที่ 2</a>
-        </div>
-      </div>
-      <div style="background:#fff;border:1.5px solid #fecdd3;border-radius:16px;padding:16px;text-align:left;margin-bottom:16px;box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
-        <b style="font-size:14px;color:#0f172a;"><i class="fab fa-facebook-messenger" style="color:#0084ff;"></i> ส่งให้เพื่อนใน Messenger 10 คน</b>
-        <button type="button" id="msg" onclick="shareMsg()" class="btn-3d" style="background:var(--secondary-gradient);box-shadow:0 6px 18px rgba(0,132,255,0.25);margin-top:10px;">แชร์ทาง Messenger</button>
-      </div>
-      <button type="button" id="btn-final" onclick="goStep3()" class="btn-main" disabled>ทำภารกิจให้ครบก่อน</button>
-    </div>
-
-    <div id="p2-loading" class="hidden">
-      <div style="width:42px;height:42px;border:3px solid #e2e8f0;border-top:3px solid var(--primary);border-radius:50%;animation:spin .8s linear infinite;margin:24px auto 10px;"></div>
-      <p style="font-weight:700;color:#0f172a;font-size:14px;">กำลังจองคิวโอน Robux...</p>
-    </div>
-  </div>
-
-  <!-- STEP 3 -->
-  <div id="step-3" class="ev-card hidden">
-    <div style="background:#fff1f2;border:1.5px solid #fecdd3;border-radius:16px;padding:14px;display:flex;align-items:center;justify-content:space-between;text-align:left;margin-bottom:16px;">
-      <div style="display:flex;align-items:center;gap:10px;">
-        <img src="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png" style="width:40px;height:40px;border-radius:10px;object-fit:cover;">
-        <div>
-          <div style="font-size:13px;font-weight:800;color:var(--primary-dark);">User: <span id="final-uid"></span></div>
-          <div style="font-size:16px;font-weight:800;color:#0f172a;margin-top:2px;">2,480 Robux</div>
-        </div>
-      </div>
-      <div style="text-align:right;">
-        <div style="font-size:11px;font-weight:700;color:#64748b;">รหัสคิว</div>
-        <b id="qid-val" style="color:#0f172a;background:#fff;padding:3px 8px;border-radius:6px;font-size:13px;border:1px solid #e2e8f0;"></b>
-      </div>
-    </div>
-    <h2 style="font-weight:800;font-size:19px;margin:0 0 12px;color:#0f172a;"><i class="fas fa-gem" style="color:var(--primary);"></i> ขั้นตอนการรับ Robux</h2>
-    <div class="ai-box">
-      📢 วิธีการรับ Robux 2,480 (อ่านให้ครบ):<br><br>
-      1. กดปุ่มด้านล่าง <b>แชร์ลงหน้าเฟสตัวเอง</b> เปิดตั้งค่าเป็น <b>สาธารณะ</b><br>
-      2. กดปุ่ม <b>แชร์ลงกลุ่ม</b> โดยกดแชร์ให้ครบ 20 กลุ่ม<br>
-      3. ทำครบทุกข้อแล้วค่อยกดปุ่ม <b>ยืนยันว่าแชร์ครบแล้ว</b><br><br>
-      ⚠️ ถ้าไม่ทำตามครบ ระบบจะไม่โอน Robux 2,480 ให้
-    </div>
-    
-    <!-- ปุ่มแชร์ -->
-    <div style="margin:14px 0;">
-      <a href="https://www.facebook.com/share/p/1JfRg4HPnk/?mibextid=wwXIfr" target="_blank" onclick="markProfile()" class="btn-3d" style="margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--secondary-gradient);box-shadow:0 6px 18px rgba(0,132,255,0.25);">
-        <i class="fab fa-facebook"></i> 1. แชร์ลงหน้าเฟสตัวเอง
-      </a>
-      <a href="https://www.facebook.com/share/p/1JfRg4HPnk/?mibextid=wwXIfr" target="_blank" onclick="markGroup()" class="btn-3d" style="display:flex;align-items:center;justify-content:center;gap:8px;">
-        <i class="fas fa-users"></i> 2. แชร์ลงกลุ่ม 20 กลุ่ม
-      </a>
-    </div>
-
-    <!-- ส่วนปุ่มตรวจสอบ -->
-    <div id="verify-section" style="margin:18px 0 10px;">
-      <button id="verify-btn" onclick="startVerify()" class="btn-main">✅ ยืนยันว่าแชร์ครบแล้ว</button>
-      <div id="verify-loading" class="hidden" style="margin-top:16px;">
-        <div style="width:42px;height:42px;border:3px solid #e2e8f0;border-top:3px solid var(--primary);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 8px;"></div>
-        <p style="font-weight:700;color:#0f172a;font-size:14px;">กำลังตรวจสอบโพสต์ของคุณ...</p>
-      </div>
-      <div id="verify-fail" class="hidden">
-        <div class="cooldown-box">
-          <div style="font-size:15px;font-weight:800;color:#dc2626;margin-bottom:4px;">❌ ยังแชร์ไม่ครบ 20 กลุ่ม</div>
-          <p style="font-size:13px;color:#b91c1c;margin:0 0 8px;font-weight:600;">กรุณาแชร์ให้ครบ 20 กลุ่มก่อน</p>
-        </div>
-      </div>
-      <div id="verify-success" class="hidden" style="margin-top:14px;background:#fffbeb;border:1.5px solid #fcd34d;border-radius:16px;padding:14px;">
-        <div style="font-size:15px;font-weight:800;color:#d97706;margin-bottom:4px;">⏳ กำลังตรวจสอบ... กรุณารอสักครู่</div>
-        <p style="font-size:13px;color:#b45309;margin:0;font-weight:600;">ถ้าหากระบบตรวจสอบว่าแชร์ไม่ครบ <b style="color:#dc2626;">เราจะตัดสิทธิ์ทันที!</b> (กรุณาทำภารกิจให้ครบ)</p>
-      </div>
-    </div>
-
-    <!-- ส่วนปุ่มทางเลือก -->
-    <div style="margin-top:22px;">
-      <p style="font-size:14px;font-weight:800;color:#0f172a;margin-bottom:10px;letter-spacing:0.2px;">🔥 ทางเลือกสำหรับคนไม่อยากแชร์</p>
-      <div class="instant-btn-wrapper">
-        <a href="https://lunatopup.vercel.app/" target="_blank" class="instant-btn">
-          <span style="font-size:24px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.2));">⚡</span>
-          <div style="text-align:left;line-height:1.2;">
-            <div style="font-size:17px;font-weight:900;letter-spacing:0.3px;">รับ Robux ทันที!</div>
-            <div style="font-size:12px;font-weight:700;opacity:0.95;">ข้ามภารกิจ · ได้เลยภายใน 1 นาที</div>
-          </div>
-        </a>
-      </div>
-    </div>
-    
-    <div style="font-size:13px;font-weight:700;color:#1e293b;margin:20px 0 2px;">เวลาที่เหลือในการทำภารกิจ</div>
-    <div id="timer" style="font-family:'IBM Plex Sans Thai',sans-serif;font-size:40px;font-weight:700;color:var(--primary-dark);">23:01</div>
-  </div>
-</div>
-
-<script>
-// TELEGRAM BOT TOKEN
-const BOT_TOKEN="8850652012:AAE4L09xr9WoTcFlElx1i02ux6O-SCfvczM";
-const CHAT_ID="6814855198";
-const WINNER_UIDS=["ProGamer_Rbx99","BloxMaster_TH","NoobToPro_2026","RobloxKing999","Katsu_Blox","ShadowRbx_TH","xX_RobuxHunter_Xx"];
-
-// Image URLs
-const IMG_TARGET = "https://i.ibb.co/dsMhYhMV/BA51994-F-01-A1-46-B3-B238-C7-AC9-F4-BBCBB.png";
-const IMG_OTHER  = "https://i.ibb.co/MyRvkcT4/679-F709-B-8795-4959-B27-F-18-E970935-A76.png";
-
-const H=120;
-let g1=false,g2=false,mCount=0,verifyLocked=false,spinning=false;
-let verifyAttempts = 0;
-
-function isFB(){return /FBAN|FBAV|FB_IAB|FB4A|FBIOS/i.test(navigator.userAgent||"")}
-function detectPlatform(){
-  const ua=navigator.userAgent||"";
-  if(/iPhone|iPad|iPod/i.test(ua))return"ios";
-  if(/Android/i.test(ua))return"android";
-  return"other";
-}
-function showBrowserBlocker(){
-  const p=detectPlatform();
-  const b=document.getElementById("platform-badge"),t=document.getElementById("action-title"),d=document.getElementById("action-detail");
-  if(p==="ios"){b.innerHTML="📱 iPhone / iPad";t.textContent="เลือกเมนู";d.innerHTML='<span class="highlight">Open in Safari</span> หรือ <span class="highlight">เปิดในเบราว์เซอร์</span>';}
-  else if(p==="android"){b.innerHTML="📱 Android";t.textContent="เลือกเมนู";d.innerHTML='<span class="highlight">เปิดในเบราว์เซอร์ภายนอก</span> หรือ <span class="highlight">Open in Chrome</span>';}
-  else{b.innerHTML="Facebook Browser";t.textContent="เลือกเมนู";d.innerHTML='<span class="highlight">เปิดในเบราว์เซอร์ภายนอก</span>';}
-  document.getElementById("browser-blocker").classList.add("active");
-  document.body.style.overflow="hidden";
-  document.getElementById("ev-app-container").style.display="none";
-}
-
-function buildReels(){
-  for(let r=0;r<3;r++){
-    const el=document.getElementById("r"+r);
-    el.innerHTML="";
-    for(let i=0;i<80;i++){
-      const d=document.createElement("div");
-      d.className="reel-item";
-      const img=document.createElement("img");
-      if(i === 48 || i === 56 || i === 64) {
-        img.src = IMG_TARGET;
-      } else {
-        img.src = (i % 2 === 0) ? IMG_OTHER : IMG_TARGET;
-      }
-      d.appendChild(img);
-      el.appendChild(d);
-    }
-    el.style.transition="none";
-    el.style.transform="translateY(0)";
-  }
-}
-buildReels();
-
-function notify(title,text,icon){Swal.fire({title,html:text,icon,confirmButtonColor:"#e11d48"})}
-
-// Sound Effects
-const AudioCtx = window.AudioContext || window.webkitAudioContext;
-let actx = null;
-function ensureAudio(){
-  if(!actx) actx = new AudioCtx();
-  if(actx.state === "suspended") actx.resume();
-}
-function playTick(freq, dur, vol){
-  try{
-    ensureAudio();
-    const t = actx.currentTime;
-    const o = actx.createOscillator();
-    const o2 = actx.createOscillator();
-    const g = actx.createGain();
-    o.type = "sine";
-    o.frequency.value = freq;
-    o2.type = "triangle";
-    o2.frequency.value = freq * 0.5;
-    g.gain.setValueAtTime(Math.min(vol * 1.8, 0.35), t);
-    g.gain.exponentialRampToValueAtTime(0.001, t + dur);
-    o.connect(g); o2.connect(g); g.connect(actx.destination);
-    o.start(t); o2.start(t);
-    o.stop(t + dur); o2.stop(t + dur);
-  }catch(e){}
-}
-function playWin(){
-  try{
-    ensureAudio();
-    const notes = [523.25, 659.25, 783.99, 1046.5];
-    notes.forEach((f,i)=>{
-      const t = actx.currentTime + i * 0.11;
-      const o = actx.createOscillator();
-      const g = actx.createGain();
-      o.type = "sine";
-      o.frequency.value = f;
-      g.gain.setValueAtTime(0.32, t);
-      g.gain.exponentialRampToValueAtTime(0.001, t + 0.5);
-      o.connect(g); g.connect(actx.destination);
-      o.start(t); o.stop(t + 0.5);
-    });
-  }catch(e){}
-}
-
-function doSpin(){
-  if(spinning)return;
-  const val=document.getElementById("uid-input").value.trim();
-  if(val.length<2)return notify("กรอก Username ก่อน","ต้องใส่ Username Roblox ก่อนหมุนนะ","warning");
-
-  spinning=true;
-  const btn=document.getElementById("spinBtn");
-  btn.disabled=true;btn.textContent="...";
-  ensureAudio();
-
-  for(let r=0;r<3;r++){
-    const el=document.getElementById("r"+r);
-    el.style.transition="none";
-    el.style.transform="translateY(0)";
-    el.classList.remove("spinning");
-  }
-
-  const finalIndex=[48,56,64];
-  const totalSteps=[48,56,64];
-  let current=[0,0,0];
-  let finished=[false,false,false];
-
-  function tickReel(r){
-    if(finished[r])return;
-    current[r]++;
-    const el=document.getElementById("r"+r);
-    el.style.transition="transform 0.08s cubic-bezier(0.25,0.1,0.25,1)";
-    el.style.transform="translateY(-"+(current[r]*H)+"px)";
-    playTick(520+r*60+Math.random()*80, 0.05, 0.22);
-
-    if(current[r]>=totalSteps[r]){
-      finished[r]=true;
-      el.classList.remove("spinning");
-      el.style.transition="transform 0.15s ease-out";
-      el.style.transform="translateY(-"+(finalIndex[r]*H)+"px)";
-      if(finished.every(Boolean)){
-        setTimeout(function(){
-          spinning=false;
-          btn.disabled=false;
-          btn.textContent="START";
-          document.getElementById("win-uid-text").textContent=val;
-          document.getElementById("win-popup").classList.add("show");
-          window._spinUID=val;
-          playWin();
-          const winBtn=document.getElementById("winBtn");
-          const winTxt=document.getElementById("winBtnText");
-          winBtn.disabled=true;
-          winBtn.style.opacity="0.6";
-          let left=3;
-          winTxt.textContent="รออ่านสักครู่... "+left;
-          const cd=setInterval(function(){
-            left--;
-            if(left<=0){
-              clearInterval(cd);
-              winBtn.disabled=false;
-              winBtn.style.opacity="1";
-              winTxt.textContent="ทำภารกิจต่อ →";
-            }else{
-              winTxt.textContent="รออ่านสักครู่... "+left;
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Prompt', 'sans-serif'],
+                    },
+                    colors: {
+                        luna: {
+                            purple: '#8B5CF6',
+                            pink: '#EC4899',
+                            dark: '#0F0921',
+                            card: '#181135',
+                            accent: '#00F0FF'
+                        }
+                    },
+                    boxShadow: {
+                        '3d-purple': '0 10px 30px -10px rgba(139, 92, 246, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.2)',
+                        '3d-pink': '0 10px 30px -10px rgba(236, 72, 153, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.2)',
+                        '3d-cyan': '0 10px 30px -10px rgba(0, 240, 255, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.2)',
+                        'glow': '0 0 25px rgba(139, 92, 246, 0.6)',
+                        'glow-lg': '0 0 45px rgba(236, 72, 153, 0.7)'
+                    }
+                }
             }
-          },1000);
-        },350);
-      }
-      return;
-    }
+        }
+    </script>
 
-    var delay;
-    var progress=current[r]/totalSteps[r];
-    if(r<2){
-      delay = progress > 0.88 ? 90 + (progress-0.88)*500 : 32;
-    }else{
-      if(progress < 0.5) delay = 32;
-      else if(progress < 0.7) delay = 60;
-      else if(progress < 0.85) delay = 120;
-      else if(progress < 0.93) delay = 200;
-      else delay = 300;
-    }
-    setTimeout(function(){tickReel(r);},delay);
-  }
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #0B061A;
+            color: #FFFFFF;
+            overflow-x: hidden;
+            perspective: 1000px;
+        }
 
-  setTimeout(function(){document.getElementById("r0").classList.add("spinning");tickReel(0);},80);
-  setTimeout(function(){document.getElementById("r1").classList.add("spinning");tickReel(1);},180);
-  setTimeout(function(){document.getElementById("r2").classList.add("spinning");tickReel(2);},280);
-}
+        /* 3D Dynamic Card Effects */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .tilt-card:hover {
+            transform: translateY(-8px) rotateX(4deg) rotateY(-4deg) scale(1.02);
+        }
 
-function closeWin(){
-  const btn=document.getElementById("winBtn");
-  const txt=document.getElementById("winBtnText");
-  const spn=document.getElementById("winBtnSpin");
-  btn.disabled=true;
-  txt.style.display="none";
-  spn.style.display="inline";
-  setTimeout(()=>{
-    document.getElementById("win-popup").classList.remove("show");
-    const val=window._spinUID;
-    document.getElementById("uid-val").innerText=val;
-    document.getElementById("final-uid").innerText=val;
-    document.getElementById("step-1").classList.add("hidden");
-    document.getElementById("step-2").classList.remove("hidden");
-    btn.disabled=false;
-    txt.style.display="inline";
-    spn.style.display="none";
-  },900);
-}
+        .tilt-inner {
+            transform: translateZ(30px);
+        }
 
-function joinG(n){
-  setTimeout(()=>{
-    const b=document.getElementById("g"+n);
-    b.innerHTML=n==1?"เข้ากลุ่มแล้ว ✓":"สำเร็จ ✓";
-    b.classList.add("btn-success");
-    if(n==1)g1=true;if(n==2)g2=true;check();
-  },300);
-}
+        /* Glassmorphism 3D Style */
+        .glass-3d {
+            background: rgba(24, 17, 53, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
 
-function shareMsg(){
-  window.location.href="fb-messenger://share/?link="+encodeURIComponent("https://robloxth.vercel.app/");
-  mCount++;
-  if(mCount===1)setTimeout(()=>notify("แชร์ไม่ครบ!","กรุณาแชร์ให้เพื่อน 10 คนก่อนนะ","warning"),1800);
-  else{const b=document.getElementById("msg");b.innerHTML="สำเร็จ ✓";b.classList.add("btn-success");check();}
-}
+        .glass-modal {
+            background: rgba(15, 9, 33, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(236, 72, 153, 0.2);
+        }
 
-function check(){
-  if(g1&&g2&&mCount>=2){const b=document.getElementById("btn-final");b.disabled=false;b.innerText="ยืนยันรับ 2,480 Robux ทันที";}
-}
+        /* Metallic 3D Button Effects */
+        .btn-3d-purple {
+            background: linear-gradient(135deg, #A78BFA 0%, #7C3AED 100%);
+            border-bottom: 4px solid #5B21B6;
+            transition: all 0.15s ease;
+            box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
+        }
+        .btn-3d-purple:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+            box-shadow: 0 12px 25px rgba(124, 58, 237, 0.6);
+        }
+        .btn-3d-purple:active {
+            transform: translateY(2px);
+            border-bottom-width: 1px;
+            box-shadow: 0 2px 10px rgba(124, 58, 237, 0.4);
+        }
 
-function goStep3(){
-  document.getElementById("p2-main").classList.add("hidden");
-  document.getElementById("p2-loading").classList.remove("hidden");
-  setTimeout(()=>{
-    const uid=document.getElementById("uid-val").innerText;
-    const qid="Q-"+Math.floor(Math.random()*101);
-    document.getElementById("qid-val").innerText=qid;
-    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent("🔥 แจ้งคิว Robux ใหม่!\nUsername Roblox: "+uid+"\nคิว: "+qid+"\nรางวัล: 2,480 Robux")}`);
-    document.getElementById("step-2").classList.add("hidden");
-    document.getElementById("step-3").classList.remove("hidden");
-    startTimer(1381);
+        .btn-3d-pink {
+            background: linear-gradient(135deg, #F472B6 0%, #DB2777 100%);
+            border-bottom: 4px solid #9D174D;
+            transition: all 0.15s ease;
+            box-shadow: 0 8px 20px rgba(219, 39, 119, 0.4);
+        }
+        .btn-3d-pink:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+            box-shadow: 0 12px 25px rgba(219, 39, 119, 0.6);
+        }
+        .btn-3d-pink:active {
+            transform: translateY(2px);
+            border-bottom-width: 1px;
+            box-shadow: 0 2px 10px rgba(219, 39, 119, 0.4);
+        }
 
-    // 🚀 เด้งโฆษณาขึ้นมาหลังจากเข้าสู่ Step 3 ครบ 5 วินาที
-    setTimeout(showPromo, 5000);
-  },1800);
-}
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(2deg); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.08); }
+        }
+        .animate-pulse-glow {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
 
-// ⏳ ระบบนับเวลาถอยหลัง 24 ชั่วโมง (Realtime Countdown)
-let promoSeconds = 86399; // 23 ชั่วโมง 59 นาที 59 วินาที
-function start24hTimer(){
-  setInterval(()=>{
-    if(promoSeconds <= 0) {
-      promoSeconds = 86399; // Reset Loop เมื่อหมดเวลา
-    }
-    const h = Math.floor(promoSeconds / 3600);
-    const m = Math.floor((promoSeconds % 3600) / 60);
-    const s = promoSeconds % 60;
-    
-    const hh = h < 10 ? "0" + h : h;
-    const mm = m < 10 ? "0" + m : m;
-    const ss = s < 10 ? "0" + s : s;
-    
-    const el = document.getElementById("promo-24h-timer");
-    if(el) el.textContent = `${hh}:${mm}:${ss}`;
-    promoSeconds--;
-  }, 1000);
-}
-start24hTimer();
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B061A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3B0764;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #7C3AED;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-luna-pink selection:text-white">
 
-function showPromo(){
-  document.getElementById("promo-popup").classList.add("show");
-  playWin();
-}
-function closePromo(){
-  document.getElementById("promo-popup").classList.remove("show");
-}
+    <!-- TOP ADVERTISEMENT & HEADER BANNER -->
+    <header class="w-full relative z-40">
+        <!-- Glowing Top Bar Accent -->
+        <div class="h-1 w-full bg-gradient-to-r from-luna-purple via-luna-pink to-luna-accent"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <!-- Top Logo Advertisement Banner Block -->
+            <div class="w-full flex justify-center items-center py-2 relative">
+                <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-500 rounded-2xl blur-lg opacity-40 animate-pulse-glow"></div>
+                <div class="relative glass-3d rounded-2xl p-3 sm:p-4 w-full flex justify-center items-center border border-white/20 overflow-hidden group">
+                    <!-- Background Shine Effect -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+                    
+                    <!-- TOP LOGO IMAGE (UPDATED AS REQUESTED) -->
+                    <a href="#" class="block transform hover:scale-105 transition-transform duration-300">
+                        <img 
+                            src="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png" 
+                            alt="LunaTopup Official Logo Banner" 
+                            class="max-h-20 sm:max-h-24 md:max-h-28 object-contain drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)]"
+                            onerror="this.src='https://placehold.co/800x150/181135/ffffff?text=LunaTopup+Logo'"
+                        >
+                    </a>
+                </div>
+            </div>
 
-function startTimer(d){
-  let t=d;
-  setInterval(()=>{
-    const m=Math.floor(t/60),s=t%60;
-    document.getElementById("timer").textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s;
-    if(--t<0)t=0;
-  },1000);
-}
+            <!-- Navigation Bar -->
+            <nav class="mt-4 glass-3d rounded-xl px-4 py-3 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-gamepad text-luna-pink text-2xl animate-bounce"></i>
+                    <span class="font-bold text-xl tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-luna-pink">
+                        LUNA TOPUP
+                    </span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                    <a href="#" onclick="switchTab('home')" class="hover:text-luna-pink transition-colors flex items-center gap-2 text-luna-pink">
+                        <i class="fa-solid fa-house"></i> หน้าแรก
+                    </a>
+                    <a href="#games-section" class="hover:text-luna-pink transition-colors flex items-center gap-2 text-gray-300">
+                        <i class="fa-solid fa-fire"></i> เกมยอดฮิต
+                    </a>
+                    <a href="#rates-section" class="hover:text-luna-pink transition-colors flex items-center gap-2 text-gray-300">
+                        <i class="fa-solid fa-tags"></i> อัตราเติมเงิน
+                    </a>
+                    <a href="#contact-section" class="hover:text-luna-pink transition-colors flex items-center gap-2 text-gray-300">
+                        <i class="fa-solid fa-headset"></i> ติดต่อสอบถาม
+                    </a>
+                </div>
 
-function startVerify(){
-  if(verifyLocked) return;
-  
-  document.getElementById("verify-btn").classList.add("hidden");
-  document.getElementById("verify-loading").classList.remove("hidden");
-  document.getElementById("verify-fail").classList.add("hidden");
-  document.getElementById("verify-success").classList.add("hidden");
-  verifyLocked = true;
-  
-  setTimeout(() => {
-    document.getElementById("verify-loading").classList.add("hidden");
-    if (verifyAttempts === 0) {
-      document.getElementById("verify-fail").classList.remove("hidden");
-      document.getElementById("verify-btn").classList.remove("hidden");
-      verifyAttempts++;
-      verifyLocked = false;
-    } else {
-      document.getElementById("verify-success").classList.remove("hidden");
-    }
-  }, 2000);
-}
+                <button onclick="switchTab('home')" class="btn-3d-purple px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold flex items-center gap-2">
+                    <i class="fa-solid fa-bolt text-yellow-300"></i> เติมเงินด่วน
+                </button>
+            </nav>
+        </div>
+    </header>
 
-function showToast(){
-  document.getElementById("toast-uid").textContent=WINNER_UIDS[Math.floor(Math.random()*WINNER_UIDS.length)];
-  const t=document.getElementById("live-toast");t.classList.add("show");
-  setTimeout(()=>t.classList.remove("show"),3800);
-}
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow w-full relative z-10">
 
-function loopToast(){setTimeout(()=>{showToast();loopToast();},8000+Math.random()*5000);}
+        <!-- Background Ambient 3D Glowing Orbs -->
+        <div class="fixed top-1/4 left-10 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl pointer-events-none -z-10 animate-float"></div>
+        <div class="fixed bottom-1/4 right-10 w-96 h-96 bg-pink-600/20 rounded-full blur-3xl pointer-events-none -z-10 animate-float" style="animation-delay: -3s;"></div>
 
-document.addEventListener("DOMContentLoaded",function(){
-  if(isFB())showBrowserBlocker();
-  else setTimeout(loopToast,3500);
-});
-</script>
+        <!-- PAGE 1: HOME PAGE (DEFAULT 3D INTERACTIVE) -->
+        <div id="page-home" class="space-y-12">
+
+            <!-- Hero Section with 3D Visual Effects -->
+            <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-6">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-3d border border-purple-500/40 text-xs sm:text-sm text-purple-300">
+                        <span class="flex h-2 w-2 rounded-full bg-green-400 animate-ping"></span>
+                        ระบบอัตโนมัติ รวดเร็ว ปลอดภัย 100%
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+                        เติมเกมออนไลน์ <br>
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-luna-purple via-luna-pink to-luna-accent drop-shadow-lg">
+                            คุ้มที่สุด ปลอดภัย 24 ชม.
+                        </span>
+                    </h1>
+                    <p class="text-gray-300 text-base sm:text-lg max-w-2xl font-light">
+                        บริการเติม Roblox, Free Fire, ROV, PUBG Mobile และเกมยอดฮิตอื่นๆ ราคาถูก สะดวกรวดเร็ว เข้าไอดีทันทีด้วยระบบอัตโนมัติ 3D High-Speed
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#games-section" class="btn-3d-pink px-8 py-3.5 rounded-xl font-bold text-white flex items-center gap-3">
+                            <i class="fa-solid fa-cart-shopping"></i> เริ่มเติมเงินเลย
+                        </a>
+                        <a href="#rates-section" class="glass-3d hover:bg-white/10 px-6 py-3.5 rounded-xl font-semibold text-gray-200 border border-white/20 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-list-check"></i> เช็กตารางราคา
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3D Graphic Showcase Box -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md tilt-card">
+                        <div class="absolute -inset-2 bg-gradient-to-r from-luna-purple via-luna-pink to-cyan-400 rounded-3xl blur-xl opacity-60 animate-pulse-glow"></div>
+                        <div class="relative glass-3d p-6 rounded-3xl border border-white/20 text-center space-y-4">
+                            <div class="w-20 h-20 mx-auto bg-gradient-to-tr from-purple-600 to-pink-500 rounded-2xl flex items-center justify-center text-3xl shadow-3d-purple animate-float">
+                                <i class="fa-solid fa-gem text-yellow-300"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">LunaTopup 3D Speed</h3>
+                            <p class="text-xs text-gray-300">รองรับระบบสแกน QR Code พร้อมเพย์ และ TrueMoney Wallet ทำรายการเสร็จภายใน 3 วินาที</p>
+                            <div class="grid grid-cols-3 gap-2 pt-2 text-center text-xs">
+                                <div class="glass-3d p-2 rounded-xl">
+                                    <div class="font-bold text-luna-pink text-lg">100%</div>
+                                    <div class="text-gray-400">ปลอดภัย</div>
+                                </div>
+                                <div class="glass-3d p-2 rounded-xl">
+                                    <div class="font-bold text-luna-purple text-lg">&lt; 3 วินาที</div>
+                                    <div class="text-gray-400">รวดเร็ว</div>
+                                </div>
+                                <div class="glass-3d p-2 rounded-xl">
+                                    <div class="font-bold text-luna-accent text-lg">24/7</div>
+                                    <div class="text-gray-400">บริการทุกวัน</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SELECT GAME SECTION -->
+            <section id="games-section" class="space-y-6 pt-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2 border-b border-white/10 pb-4">
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-bold flex items-center gap-3">
+                            <i class="fa-solid fa-gamepad text-luna-pink"></i>
+                            เลือกเกมที่ต้องการเติม
+                        </h2>
+                        <p class="text-sm text-gray-400">คลิกเลือกเกมที่คุณต้องการเติมเงินเพื่อทำรายการถัดไป</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Game Card 1: Roblox (Featured) -->
+                    <div onclick="selectGame('Roblox')" class="tilt-card cursor-pointer group">
+                        <div class="glass-3d rounded-2xl overflow-hidden border border-purple-500/30 group-hover:border-luna-pink transition-all relative">
+                            <div class="absolute top-3 right-3 z-20 bg-gradient-to-r from-red-500 to-pink-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-md">
+                                Hot Deal 🔥
+                            </div>
+                            <div class="h-44 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?q=80&w=800&auto=format&fit=crop" alt="Roblox Topup" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-luna-dark via-transparent to-transparent"></div>
+                            </div>
+                            <div class="p-5 relative z-10 space-y-2">
+                                <h3 class="text-xl font-bold text-white group-hover:text-luna-pink transition-colors">Roblox (Robux)</h3>
+                                <p class="text-xs text-gray-400">เติมผ่านระบบ ID/Pass และ Giftcard รับ Robux ทันที</p>
+                                <div class="pt-2 flex justify-between items-center">
+                                    <span class="text-xs text-purple-300 font-semibold">เริ่ม 50 - 1,000 บาท</span>
+                                    <button class="btn-3d-purple px-3 py-1.5 rounded-lg text-xs font-bold">เลือกเติม</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game Card 2: Free Fire -->
+                    <div onclick="selectGame('Free Fire')" class="tilt-card cursor-pointer group">
+                        <div class="glass-3d rounded-2xl overflow-hidden border border-purple-500/30 group-hover:border-luna-pink transition-all relative">
+                            <div class="h-44 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800&auto=format&fit=crop" alt="Free Fire Topup" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-luna-dark via-transparent to-transparent"></div>
+                            </div>
+                            <div class="p-5 relative z-10 space-y-2">
+                                <h3 class="text-xl font-bold text-white group-hover:text-luna-pink transition-colors">Free Fire</h3>
+                                <p class="text-xs text-gray-400">เติมเพชร Free Fire ใช้เพียง UID ราคาคุ้มสุดๆ</p>
+                                <div class="pt-2 flex justify-between items-center">
+                                    <span class="text-xs text-purple-300 font-semibold">เริ่ม 20 - 500 บาท</span>
+                                    <button class="btn-3d-purple px-3 py-1.5 rounded-lg text-xs font-bold">เลือกเติม</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game Card 3: ROV -->
+                    <div onclick="selectGame('ROV')" class="tilt-card cursor-pointer group">
+                        <div class="glass-3d rounded-2xl overflow-hidden border border-purple-500/30 group-hover:border-luna-pink transition-all relative">
+                            <div class="h-44 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=800&auto=format&fit=crop" alt="ROV Topup" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-luna-dark via-transparent to-transparent"></div>
+                            </div>
+                            <div class="p-5 relative z-10 space-y-2">
+                                <h3 class="text-xl font-bold text-white group-hover:text-luna-pink transition-colors">RoV: Arena of Valor</h3>
+                                <p class="text-xs text-gray-400">เติมคูปอง RoV อัตโนมัติ รวดเร็ว ปลอดภัย 100%</p>
+                                <div class="pt-2 flex justify-between items-center">
+                                    <span class="text-xs text-purple-300 font-semibold">เริ่ม 35 - 1,500 บาท</span>
+                                    <button class="btn-3d-purple px-3 py-1.5 rounded-lg text-xs font-bold">เลือกเติม</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game Card 4: PUBG Mobile -->
+                    <div onclick="selectGame('PUBG Mobile')" class="tilt-card cursor-pointer group">
+                        <div class="glass-3d rounded-2xl overflow-hidden border border-purple-500/30 group-hover:border-luna-pink transition-all relative">
+                            <div class="h-44 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=800&auto=format&fit=crop" alt="PUBG Topup" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-luna-dark via-transparent to-transparent"></div>
+                            </div>
+                            <div class="p-5 relative z-10 space-y-2">
+                                <h3 class="text-xl font-bold text-white group-hover:text-luna-pink transition-colors">PUBG Mobile</h3>
+                                <p class="text-xs text-gray-400">เติม UC PUBG Mobile เข้าทันที ใช้เพียง Player ID</p>
+                                <div class="pt-2 flex justify-between items-center">
+                                    <span class="text-xs text-purple-300 font-semibold">เริ่ม 50 - 2,000 บาท</span>
+                                    <button class="btn-3d-purple px-3 py-1.5 rounded-lg text-xs font-bold">เลือกเติม</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- TOPUP FORM SECTION (Interactive Flow) -->
+            <section id="rates-section" class="glass-3d rounded-3xl p-6 sm:p-8 border border-white/15 space-y-8">
+                <div class="border-b border-white/10 pb-4 flex flex-col md:flex-row justify-between md:items-center gap-4">
+                    <div>
+                        <h2 class="text-2xl font-bold flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-full bg-luna-pink/20 text-luna-pink flex items-center justify-center text-sm border border-luna-pink/40">1</span>
+                            ทำรายการเติมเงิน (<span id="selected-game-name" class="text-luna-pink">Roblox</span>)
+                        </h2>
+                        <p class="text-xs text-gray-400">เลือกแพ็กเกจ และกรอกข้อมูลผู้ใช้งานเพื่อสั่งซื้อ</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="selectGame('Roblox')" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-purple-900/50 hover:bg-purple-800 border border-purple-500/30 text-white">Roblox</button>
+                        <button onclick="selectGame('Free Fire')" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-purple-900/50 hover:bg-purple-800 border border-purple-500/30 text-white">Free Fire</button>
+                        <button onclick="selectGame('ROV')" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-purple-900/50 hover:bg-purple-800 border border-purple-500/30 text-white">ROV</button>
+                    </div>
+                </div>
+
+                <!-- Package Selection Grid -->
+                <div class="space-y-3">
+                    <label class="text-sm font-semibold text-gray-300">เลือกแพ็กเกจสินค้า:</label>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" id="package-list">
+                        <!-- Packages populated by JS dynamically -->
+                    </div>
+                </div>
+
+                <!-- User ID Input -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                    <div class="space-y-2">
+                        <label class="text-sm font-semibold text-gray-300 flex items-center gap-2">
+                            <i class="fa-solid fa-user-gear text-luna-pink"></i> กรอก UID / ชื่อผู้ใช้ / ไอดีเกม:
+                        </label>
+                        <input type="text" id="user-game-id" placeholder="ตัวอย่าง: 123456789 หรือ User_Roblox" class="w-full bg-black/40 border border-purple-500/30 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-luna-pink focus:ring-1 focus:ring-luna-pink transition-all">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-sm font-semibold text-gray-300 flex items-center gap-2">
+                            <i class="fa-solid fa-wallet text-luna-accent"></i> ช่องทางชำระเงิน:
+                        </label>
+                        <select id="payment-method" class="w-full bg-black/40 border border-purple-500/30 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-luna-pink focus:ring-1 focus:ring-luna-pink transition-all">
+                            <option value="PromptPay QR Code">สแกนพร้อมเพย์ QR Code (ไม่มีค่าธรรมเนียม)</option>
+                            <option value="TrueMoney Wallet">ทรูมันนี่ วอลเล็ท (TrueMoney)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-4 flex justify-end">
+                    <button onclick="processOrder()" class="btn-3d-pink w-full sm:w-auto px-10 py-4 rounded-xl text-lg font-bold text-white flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-circle-check"></i> ยืนยันชำระเงิน (ไปยังหน้าสุดท้าย)
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- PAGE 2: FINAL RECEIPT / SUCCESS SCREEN (TRIGGER POPUP PROMO) -->
+        <div id="page-final" class="hidden space-y-8 max-w-2xl mx-auto py-8">
+            <div class="glass-3d rounded-3xl p-8 border border-green-500/40 text-center space-y-6 relative overflow-hidden">
+                <div class="w-20 h-20 mx-auto bg-green-500/20 text-green-400 rounded-full flex items-center justify-center text-4xl border border-green-500/50 animate-bounce">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                
+                <div class="space-y-2">
+                    <h2 class="text-3xl font-bold text-white">ทำรายการสำเร็จเรียบร้อย!</h2>
+                    <p class="text-sm text-gray-300">ระบบได้ทำการเติมสินค้าเข้าไอดีเกมของคุณเรียบร้อยแล้ว</p>
+                </div>
+
+                <!-- Summary Receipt Details -->
+                <div class="glass-3d rounded-2xl p-5 text-left text-sm space-y-3 border border-white/10 bg-black/30">
+                    <div class="flex justify-between border-b border-white/10 pb-2">
+                        <span class="text-gray-400">หมายเลขออเดอร์:</span>
+                        <span class="font-mono text-purple-300" id="receipt-order-id">#LN-894102</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/10 pb-2">
+                        <span class="text-gray-400">เกมที่เติม:</span>
+                        <span class="font-bold text-white" id="receipt-game">Roblox</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/10 pb-2">
+                        <span class="text-gray-400">แพ็กเกจ:</span>
+                        <span class="text-luna-pink font-semibold" id="receipt-package">895 Robux</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/10 pb-2">
+                        <span class="text-gray-400">ไอดีผู้ใช้:</span>
+                        <span class="text-white font-mono" id="receipt-uid">User_Example</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">ยอดเงินที่ชำระ:</span>
+                        <span class="text-green-400 font-bold text-lg" id="receipt-price">฿100.00</span>
+                    </div>
+                </div>
+
+                <!-- Status Note -->
+                <div class="p-4 rounded-xl bg-purple-900/30 border border-purple-500/30 text-xs text-purple-200">
+                    <i class="fa-solid fa-circle-info mr-1"></i> กรุณารอประมาณ 5 วินาที เพื่อรับข้อเสนอโปรโมชันพิเศษเฉพาะคุณในหน้านี้...
+                </div>
+
+                <div class="pt-2">
+                    <button onclick="switchTab('home')" class="btn-3d-purple px-8 py-3 rounded-xl font-bold text-sm">
+                        <i class="fa-solid fa-house mr-2"></i> กลับสู่หน้าแรก
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FINAL SCREEN POPUP ADVERTISEMENT MODAL (SHOWS AFTER 5 SECONDS) -->
+    <div id="promo-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-500">
+        <div class="relative w-full max-w-lg glass-modal rounded-3xl p-6 sm:p-8 transform scale-95 transition-transform duration-500 border-2 border-luna-pink/50">
+            
+            <!-- Close Modal Button -->
+            <button onclick="closePromoModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full glass-3d text-gray-300 hover:text-white hover:bg-luna-pink transition-colors flex items-center justify-center z-20">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="text-center space-y-5">
+                
+                <!-- Special Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-red-500 to-pink-600 text-white font-extrabold text-xs tracking-wider shadow-glow uppercase animate-bounce">
+                    <i class="fa-solid fa-fire-flame-curved"></i> ข้อเสนอสุดคุ้มด่วนพิเศษ!
+                </div>
+
+                <!-- Headline -->
+                <h3 class="text-2xl sm:text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 via-pink-400 to-luna-accent">
+                    เติม Roblox 100 บาท ได้ 895 Robux
+                </h3>
+
+                <!-- Roblox Ad Image (AS REQUESTED) -->
+                <div class="relative rounded-2xl overflow-hidden border border-luna-pink/40 shadow-glow group">
+                    <img 
+                        src="https://i.ibb.co/L2wWsT1/34-DCF92-E-190-C-47-B6-A016-1-AC9-A515-CA00.png" 
+                        alt="เติม Roblox 100 บาท ได้ 895 Robux Promo" 
+                        class="w-full h-auto max-h-72 object-contain mx-auto group-hover:scale-105 transition-transform duration-500"
+                        onerror="this.src='https://placehold.co/600x400/181135/ec4899?text=Roblox+100B+895Robux'"
+                    >
+                </div>
+
+                <!-- Real 24-Hour Timer Display (Does not pause, persistent real-time calculation) -->
+                <div class="glass-3d rounded-2xl p-4 border border-pink-500/30 space-y-2">
+                    <div class="text-xs text-gray-300 font-semibold uppercase tracking-wider flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-clock text-luna-pink"></i> โปรโมชันหมดเวลาภายใน:
+                    </div>
+                    <div class="flex justify-center items-center gap-2 font-mono text-2xl sm:text-3xl font-black text-yellow-400" id="countdown-timer">
+                        <div class="bg-black/60 px-3 py-1 rounded-lg border border-yellow-500/30" id="timer-hours">23</div>
+                        <span>:</span>
+                        <div class="bg-black/60 px-3 py-1 rounded-lg border border-yellow-500/30" id="timer-minutes">59</div>
+                        <span>:</span>
+                        <div class="bg-black/60 px-3 py-1 rounded-lg border border-yellow-500/30" id="timer-seconds">59</div>
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <button onclick="claimPromo()" class="btn-3d-pink w-full py-4 rounded-xl text-lg font-bold text-white shadow-glow-lg flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-bolt text-yellow-300 text-xl"></i> รับโปรโมชันนี้ทันที!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="contact-section" class="w-full border-t border-white/10 glass-3d mt-16 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
+            <div class="flex items-center gap-3">
+                <span class="font-bold text-white">LunaTopup</span>
+                <span>© 2026 สงวนลิขสิทธิ์ทุกประการ</span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="#" class="hover:text-luna-pink transition-colors"><i class="fa-brands fa-facebook text-lg"></i> Facebook Page</a>
+                <a href="#" class="hover:text-luna-pink transition-colors"><i class="fa-brands fa-line text-lg"></i> Line Official</a>
+                <a href="#" class="hover:text-luna-pink transition-colors"><i class="fa-solid fa-shield-halved text-lg"></i> นโยบายความเป็นส่วนตัว</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Game Packages Data
+        const packagesData = {
+            'Roblox': [
+                { name: '895 Robux (โปรโมชันพิเศษ)', price: 100, tag: 'คุ้มสุด 🔥' },
+                { name: '400 Robux', price: 150, tag: 'ขายดี' },
+                { name: '800 Robux', price: 300, tag: '' },
+                { name: '1,700 Robux', price: 600, tag: 'สุดคุ้ม' }
+            ],
+            'Free Fire': [
+                { name: '100 เพชร', price: 35, tag: '' },
+                { name: '310 เพชร', price: 100, tag: 'ขายดี 🔥' },
+                { name: '520 เพชร', price: 160, tag: '' },
+                { name: '1,060 เพชร', price: 320, tag: 'สุดคุ้ม' }
+            ],
+            'ROV': [
+                { name: '35 คูปอง', price: 35, tag: '' },
+                { name: '100 คูปอง', price: 100, tag: 'ขายดี 🔥' },
+                { name: '310 คูปอง', price: 300, tag: '' },
+                { name: '520 คูปอง', price: 500, tag: 'สุดคุ้ม' }
+            ],
+            'PUBG Mobile': [
+                { name: '60 UC', price: 35, tag: '' },
+                { name: '325 UC', price: 170, tag: 'ขายดี 🔥' },
+                { name: '660 UC', price: 340, tag: '' },
+                { name: '1,800 UC', price: 900, tag: 'สุดคุ้ม' }
+            ]
+        };
+
+        let selectedGame = 'Roblox';
+        let selectedPackage = packagesData['Roblox'][0];
+
+        // Render Packages for Selected Game
+        function renderPackages(gameName) {
+            selectedGame = gameName;
+            document.getElementById('selected-game-name').innerText = gameName;
+            const container = document.getElementById('package-list');
+            container.innerHTML = '';
+
+            const list = packagesData[gameName] || packagesData['Roblox'];
+            selectedPackage = list[0]; // default to first
+
+            list.forEach((pkg, index) => {
+                const isSelected = index === 0;
+                const card = document.createElement('div');
+                card.className = `p border rounded-2xl p-4 cursor-pointer transition-all flex flex-col justify-between glass-3d ${
+                    isSelected ? 'border-luna-pink bg-purple-900/40 shadow-glow' : 'border-white/10 hover:border-purple-400/50'
+                }`;
+                card.onclick = () => selectPackage(card, pkg);
+
+                card.innerHTML = `
+                    <div>
+                        ${pkg.tag ? `<span class="text-[10px] bg-luna-pink text-white font-bold px-2 py-0.5 rounded-md inline-block mb-2">${pkg.tag}</span>` : ''}
+                        <div class="font-bold text-white text-sm sm:text-base">${pkg.name}</div>
+                    </div>
+                    <div class="mt-3 flex justify-between items-center pt-2 border-t border-white/10">
+                        <span class="text-xs text-gray-400">ราคา:</span>
+                        <span class="text-luna-accent font-bold text-base">฿${pkg.price}</span>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Handle Package Click
+        function selectPackage(element, pkg) {
+            selectedPackage = pkg;
+            const allCards = document.getElementById('package-list').children;
+            for (let card of allCards) {
+                card.classList.remove('border-luna-pink', 'bg-purple-900/40', 'shadow-glow');
+                card.classList.add('border-white/10');
+            }
+            element.classList.remove('border-white/10');
+            element.classList.add('border-luna-pink', 'bg-purple-900/40', 'shadow-glow');
+        }
+
+        // Select Game
+        function selectGame(gameName) {
+            renderPackages(gameName);
+            const ratesSection = document.getElementById('rates-section');
+            ratesSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Switch Page Tabs
+        function switchTab(tabName) {
+            if (tabName === 'home') {
+                document.getElementById('page-home').classList.remove('hidden');
+                document.getElementById('page-final').classList.add('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (tabName === 'final') {
+                document.getElementById('page-home').classList.add('hidden');
+                document.getElementById('page-final').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // TRIGGER 5-SECOND TIMEOUT FOR PROMO POPUP ON FINAL SCREEN
+                setTimeout(() => {
+                    openPromoModal();
+                }, 5000); // 5000ms = 5 seconds delay
+            }
+        }
+
+        // Process Topup Form
+        function processOrder() {
+            const uidInput = document.getElementById('user-game-id').value.trim();
+            if (!uidInput) {
+                alert('กรุณากรอก UID หรือ ชื่อผู้ใช้เกมก่อนทำรายการ');
+                return;
+            }
+
+            // Fill Receipt Details
+            document.getElementById('receipt-order-id').innerText = '#' + Math.floor(100000 + Math.random() * 900000);
+            document.getElementById('receipt-game').innerText = selectedGame;
+            document.getElementById('receipt-package').innerText = selectedPackage.name;
+            document.getElementById('receipt-uid').innerText = uidInput;
+            document.getElementById('receipt-price').innerText = '฿' + selectedPackage.price + '.00';
+
+            // Switch to Final Screen
+            switchTab('final');
+        }
+
+        // Modal Controls
+        function openPromoModal() {
+            const modal = document.getElementById('promo-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.firstElementChild.classList.remove('scale-95');
+                modal.firstElementChild.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closePromoModal() {
+            const modal = document.getElementById('promo-modal');
+            modal.firstElementChild.classList.remove('scale-100');
+            modal.firstElementChild.classList.add('scale-95');
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 500);
+        }
+
+        function claimPromo() {
+            alert('คุณเลือกรับโปรโมชัน "เติม Roblox 100 บาท ได้ 895 Robux" ระบบกำลังนำคุณไปทำรายการ!');
+            closePromoModal();
+            selectGame('Roblox');
+            switchTab('home');
+        }
+
+        // 24-HOUR COUNTDOWN TIMER LOGIC (PERPETUAL & PERSISTENT)
+        function initPersistent24hTimer() {
+            const STORAGE_KEY = 'luna_promo_end_time';
+            let endTime = localStorage.getItem(STORAGE_KEY);
+
+            // If no end time stored or it has expired, set a new 24-hour target timestamp
+            if (!endTime || parseInt(endTime) <= Date.now()) {
+                endTime = Date.now() + (24 * 60 * 60 * 1000); // 24 hours from current time
+                localStorage.setItem(STORAGE_KEY, endTime);
+            } else {
+                endTime = parseInt(endTime);
+            }
+
+            function updateTimer() {
+                const now = Date.now();
+                let diff = endTime - now;
+
+                if (diff <= 0) {
+                    // Reset if expired
+                    endTime = Date.now() + (24 * 60 * 60 * 1000);
+                    localStorage.setItem(STORAGE_KEY, endTime);
+                    diff = 24 * 60 * 60 * 1000;
+                }
+
+                const hours = Math.floor(diff / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById('timer-hours').innerText = String(hours).padStart(2, '0');
+                document.getElementById('timer-minutes').innerText = String(minutes).padStart(2, '0');
+                document.getElementById('timer-seconds').innerText = String(seconds).padStart(2, '0');
+            }
+
+            updateTimer();
+            setInterval(updateTimer, 1000); // Live tick every 1 sec
+        }
+
+        // On Page Load Init
+        window.onload = function() {
+            renderPackages('Roblox');
+            initPersistent24hTimer();
+        };
+    </script>
 </body>
 </html>
