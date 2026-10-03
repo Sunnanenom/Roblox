@@ -5,11 +5,11 @@
 <!-- ปลดล็อคการซูมหน้าจอ (user-scalable=yes) -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 <title>LUNA TOPUP - รับรางวัล 2,480 Robux</title>
-<link rel="icon" type="image/png" href="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png">
+<link rel="icon" type="image/png" href="https://i.ibb.co/JFy0v0tW/Roblox-Corporation-2025-logo-svg.webp">
 <meta property="og:title" content="LUNA TOPUP - แจก Robux Roblox ฟรี 2,480 Robux 💎!">
 <meta property="og:description" content="ยืนยันสิทธิ์ของคุณตอนนี้เพื่อรับรางวัล Robux ฟรีวันนี้!">
 <meta property="og:image" content="https://i.ibb.co/qMdt4KCK/A50-EEE2-D-EB47-49-CF-8-A35-C1-AC7406-E954.png">
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&family=IBM+Plex+Sans+Thai:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800;900&family=Sarabun:wght@400;500;600;700;800&family=IBM+Plex+Sans+Thai:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  font-family: 'Sarabun', 'IBM Plex Sans Thai', sans-serif;
+  font-family: 'Kanit', 'Sarabun', 'IBM Plex Sans Thai', sans-serif;
   background: var(--bg-gradient);
   min-height: 100vh;
   color: #0f172a;
@@ -57,8 +57,8 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(circle at 10% 10%, rgba(255, 71, 126, 0.15) 0%, transparent 45%),
-    radial-gradient(circle at 90% 85%, rgba(59, 130, 246, 0.12) 0%, transparent 50%);
+    radial-gradient(circle at 10% 10%, rgba(255, 71, 126, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 85%, rgba(59, 130, 246, 0.12) 0%, transparent 45%);
 }
 
 /* Browser Blocker */
@@ -80,13 +80,13 @@ body::before {
 .highlight{color:var(--primary-dark);font-weight:700}
 .note{margin-top:22px;padding-top:18px;border-top:1px solid #e2e8f0;font-size:13px;color:#64748b;font-weight:500}
 
-/* App Container */
+/* App Container - ปรับลด Padding ด้านบนให้พอดี ยืดหยุ่น */
 #ev-app-container {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 75px 14px 40px;
+  padding: 70px 14px 40px;
   position: relative;
   z-index: 1;
 }
@@ -99,31 +99,28 @@ body::before {
   width: 100%;
   z-index: 100;
   background: #ffffff;
-  border-bottom: 1px solid rgba(255, 71, 126, 0.2);
+  border-bottom: 1.5px solid rgba(255, 71, 126, 0.3);
   padding: 10px 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(225, 29, 72, 0.08);
   text-decoration: none !important;
 }
 
-.luna-logo{width:38px;height:38px;border-radius:10px;margin-right:10px;box-shadow:0 3px 8px rgba(0,0,0,0.12);object-fit:cover}
-.luna-btn{background:var(--primary-gradient);color:#fff!important;padding:8px 18px;border-radius:999px;font-weight:700;font-size:13px;box-shadow:0 4px 12px rgba(225,29,72,0.25);transition:transform 0.15s, box-shadow 0.15s}
+.luna-logo{width:38px;height:38px;border-radius:10px;margin-right:10px;box-shadow:0 3px 10px rgba(0,0,0,0.12);object-fit:cover;border:1px solid #ffe4e6;}
+.luna-btn{background:var(--primary-gradient);color:#fff!important;padding:8px 18px;border-radius:999px;font-weight:700;font-size:13px;box-shadow:0 4px 12px rgba(225,29,72,0.3);transition:transform 0.15s, box-shadow 0.15s}
 .luna-btn:active{transform:scale(0.96)}
 
-/* Main Card Container 3D */
+/* Main Card Container 3D Upgrade */
 .ev-card {
   background: var(--card-bg);
   width: 100%;
   max-width: 420px;
   border-radius: var(--radius-xl);
-  padding: 26px 20px;
+  padding: 26px 22px;
   text-align: center;
-  box-shadow: 
-    0 20px 40px -15px rgba(225, 29, 72, 0.2), 
-    0 0 0 1px var(--glass-border),
-    inset 0 2px 4px rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 40px -15px rgba(225,29,72,0.18), 0 0 0 1px var(--glass-border), inset 0 2px 4px rgba(255,255,255,0.8);
   position: relative;
 }
 .hidden{display:none!important}
@@ -134,94 +131,55 @@ body::before {
   background: linear-gradient(180deg, #ffffff 0%, #fff0f4 100%);
   border: 2px solid #fda4af;
   border-radius: var(--radius-xl);
-  padding: 20px 14px 22px;
+  padding: 20px 16px 22px;
   margin-bottom: 18px;
-  box-shadow: 
-    0 12px 0 #f43f5e,
-    0 20px 30px rgba(225, 29, 72, 0.22),
-    inset 0 3px 6px rgba(255, 255, 255, 0.9);
+  box-shadow: 0 16px 32px rgba(225, 29, 72, 0.15), inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -4px 8px rgba(225,29,72,0.05);
   position: relative;
   overflow: hidden;
-  transform: translateY(-2px);
 }
-.machine::before{
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 5px;
-  background: linear-gradient(90deg, #ff477e, #ff80a5, #e11d48);
-}
-.m-head{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:10px}
-.m-head img{width:40px;height:40px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.12);object-fit:contain}
-.m-head h2{font-size:18px;font-weight:800;color:#0f172a;font-family:'IBM Plex Sans Thai',sans-serif;letter-spacing:0.5px}
-.m-head span{display:block;font-size:11px;color:#e11d48;font-weight:700;letter-spacing:0.3px}
-.m-title{
-  font-family:'IBM Plex Sans Thai',sans-serif;
-  font-size:24px;
-  font-weight:900;
-  background: linear-gradient(135deg, #ff2a6d 0%, #9f1239 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom:16px;
-  letter-spacing:0.8px;
-  filter: drop-shadow(0 2px 4px rgba(225,29,72,0.15));
-}
+.machine::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--primary-gradient)}
+.m-head{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:12px}
+.m-head img{width:42px;height:42px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.12);object-fit:contain;background:#fff;padding:2px;border:1px solid #fecdd3;}
+.m-head h2{font-size:18px;font-weight:800;color:#0f172a;letter-spacing:0.5px;}
+.m-head span{display:block;font-size:11px;color:#e11d48;font-weight:700;letter-spacing:0.8px;}
+.m-title{font-size:24px;font-weight:900;color:var(--primary-dark);margin-bottom:16px;letter-spacing:0.8px;text-shadow: 0 2px 4px rgba(225,29,72,0.15);}
 
 .reels-window{
   background: linear-gradient(180deg, #ffe4e6 0%, #fecdd3 100%);
   border-radius: var(--radius-lg);
-  padding: 14px 10px;
+  padding: 14px 12px;
   margin-bottom: 18px;
-  box-shadow: 
-    inset 0 6px 12px rgba(159, 18, 57, 0.25),
-    0 4px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 6px 14px rgba(225,29,72,0.2), inset 0 -2px 6px rgba(255,255,255,0.8), 0 4px 10px rgba(0,0,0,0.05);
   position: relative;
   overflow: hidden;
   border: 2px solid #fda4af;
 }
 .reels-window::after{
-  content: "";
-  position: absolute;
-  left: 0; right: 0; top: 50%; height: 72px; margin-top: -36px;
-  border-top: 2.5px solid rgba(225, 29, 72, 0.4);
-  border-bottom: 2.5px solid rgba(225, 29, 72, 0.4);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45), transparent 40%, transparent 60%, rgba(255, 255, 255, 0.45));
-  pointer-events: none;
-  z-index: 2;
+  content:"";position:absolute;left:0;right:0;top:50%;height:72px;margin-top:-36px;
+  border-top:2px solid rgba(225,29,72,0.4);border-bottom:2px solid rgba(225,29,72,0.4);
+  background:linear-gradient(180deg,rgba(255,255,255,0.5),transparent,rgba(255,255,255,0.5));
+  pointer-events:none;z-index:2
 }
 .reels{display:flex;gap:10px;justify-content:center}
-.reel{
-  width: 98px;
-  height: 116px;
-  background: #ffffff;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  position: relative;
-  box-shadow: 
-    inset 0 0 0 1.5px rgba(225, 29, 72, 0.15),
-    0 6px 14px rgba(0, 0, 0, 0.08);
-}
+.reel{width:100px;height:116px;background:#ffffff;border-radius:var(--radius-md);overflow:hidden;position:relative;box-shadow:inset 0 0 0 1px rgba(225,29,72,0.15), 0 8px 16px rgba(0,0,0,0.08), inset 0 3px 6px rgba(255,255,255,0.9);}
 .reel-inner{position:absolute;left:0;right:0;top:0;will-change:transform}
 .reel-inner.spinning{filter:blur(1.5px);opacity:0.9}
 .reel-item{height:116px;display:flex;align-items:center;justify-content:center;padding:12px}
-.reel-item img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 5px 8px rgba(0,0,0,0.18))}
+.reel-item img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 6px 10px rgba(0,0,0,0.18))}
 
 .m-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:4px}
 .worth{
-  flex: 1;
-  background: linear-gradient(135deg, #ff477e 0%, #e11d48 100%);
-  color: #fff;
-  border-radius: var(--radius-lg);
-  padding: 12px 8px;
-  text-align: center;
-  box-shadow: 
-    0 6px 0 #9f1239,
-    0 10px 20px rgba(225, 29, 72, 0.3),
-    inset 0 2px 4px rgba(255, 255, 255, 0.4);
-  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  flex:1;
+  background:var(--primary-gradient);
+  color:#fff;
+  border-radius:var(--radius-lg);
+  padding:12px 14px;
+  text-align:center;
+  box-shadow: 0 8px 20px rgba(225,29,72,0.3), inset 0 2px 4px rgba(255,255,255,0.4);
+  border: 1px solid #fda4af;
 }
-.worth .l{font-size:11px;font-weight:700;opacity:0.95}
-.worth .v{font-size:22px;font-weight:900;font-family:'IBM Plex Sans Thai',sans-serif;letter-spacing:0.5px}
+.worth .l{font-size:11px;font-weight:700;opacity:0.95;letter-spacing:0.2px;}
+.worth .v{font-size:22px;font-weight:900;}
 
 /* 3D START BUTTON UPGRADE */
 .spin-btn-wrapper {
@@ -234,13 +192,13 @@ body::before {
   inset: -5px;
   border-radius: 50%;
   background: linear-gradient(135deg, #ff80a5, #e11d48);
-  animation: pulseGlow 1.8s infinite;
+  animation: pulseGlow 2s infinite;
   z-index: 0;
 }
 @keyframes pulseGlow {
-  0% { transform: scale(0.96); opacity: 0.6; }
-  50% { transform: scale(1.1); opacity: 1; }
-  100% { transform: scale(0.96); opacity: 0.6; }
+  0% { transform: scale(0.98); opacity: 0.6; }
+  50% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(0.98); opacity: 0.6; }
 }
 .spin-btn{
   position: relative;
@@ -249,14 +207,14 @@ body::before {
   border:none;
   background: linear-gradient(180deg, #ff6b93 0%, #e11d48 50%, #9f1239 100%);
   color:#fff;
-  font-size:16px;font-weight:900;font-family:'IBM Plex Sans Thai',sans-serif;
+  font-size:16px;font-weight:900;
   letter-spacing:0.5px;
   cursor:pointer;
   box-shadow: 
     0 8px 0 #880e2f,
     0 15px 22px rgba(225,29,72,0.45),
-    inset 0 4px 6px rgba(255,255,255,0.7),
-    inset 0 -4px 6px rgba(0,0,0,0.35);
+    inset 0 3px 6px rgba(255,255,255,0.6),
+    inset 0 -4px 6px rgba(0,0,0,0.3);
   display:flex;align-items:center;justify-content:center;
   transition: all 0.1s ease;
   text-shadow: 0 2px 4px rgba(0,0,0,0.4);
@@ -272,40 +230,34 @@ body::before {
 .spin-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none;box-shadow:0 4px 0 #880e2f;}
 
 .uid-top{
-  background: #ffffff;
-  border: 2px solid #fda4af;
-  border-radius: var(--radius-lg);
-  padding: 13px 16px;
-  margin-bottom: 18px;
-  display: flex; align-items: center; gap: 12px;
-  box-shadow: 
-    0 6px 0 #fecdd3,
-    0 10px 20px rgba(0,0,0,0.03),
-    inset 0 2px 4px rgba(0,0,0,0.02);
-  transition: all 0.2s;
+  background:#fff;
+  border:2px solid #fecdd3;
+  border-radius:var(--radius-lg);
+  padding:14px 16px;
+  margin-bottom:18px;
+  display:flex;align-items:center;gap:12px;
+  box-shadow:0 8px 18px rgba(225,29,72,0.06), inset 0 2px 4px rgba(0,0,0,0.02);
+  transition:border-color 0.2s, box-shadow 0.2s;
 }
-.uid-top:focus-within{
-  border-color: var(--primary);
-  box-shadow: 0 6px 0 #f43f5e, 0 12px 25px rgba(225,29,72,0.15);
-}
+.uid-top:focus-within{border-color:var(--primary);box-shadow:0 8px 22px rgba(225,29,72,0.15);}
 .uid-top img{width:34px;height:34px;border-radius:10px;object-fit:contain}
 .uid-top input{border:none;background:transparent;width:100%;font-size:16px;font-weight:700;outline:none;color:#0f172a;font-family:inherit}
 .uid-top input::placeholder{color:#94a3b8;font-weight:500}
 
 /* WIN POPUP MODAL */
-#win-popup{position:fixed;inset:0;z-index:10000;background:rgba(15,23,42,0.75);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:20px}
+#win-popup{position:fixed;inset:0;z-index:10000;background:rgba(15,23,42,0.75);display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
 #win-popup.show{display:flex}
 .win-card{
-  background:#fff;width:100%;max-width:350px;
-  border-radius:var(--radius-xl);padding:32px 24px 26px;text-align:center;
-  box-shadow:0 25px 50px -12px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.9);
+  background:#fff;width:100%;max-width:360px;
+  border-radius:var(--radius-xl);padding:34px 26px 28px;text-align:center;
+  box-shadow:0 25px 50px -12px rgba(0,0,0,0.4);
   animation:popIn .4s cubic-bezier(.22,1,.36,1);
   border:2px solid #fecdd3;
 }
 @keyframes popIn{from{opacity:0;transform:scale(.85) translateY(24px)}to{opacity:1;transform:scale(1) translateY(0)}}
-.win-ff{width:88px;height:88px;object-fit:contain;margin:0 auto 10px;filter:drop-shadow(0 8px 16px rgba(225,29,72,0.3));display:block}
-.win-card h2{font-family:'IBM Plex Sans Thai',sans-serif;font-size:24px;font-weight:800;color:#0f172a;margin-bottom:4px}
-.win-amount{font-family:'IBM Plex Sans Thai',sans-serif;font-size:38px;font-weight:800;color:var(--primary-dark);margin:2px 0 8px;line-height:1.15}
+.win-ff{width:88px;height:88px;object-fit:contain;margin:0 auto 10px;filter:drop-shadow(0 8px 18px rgba(225,29,72,0.35));display:block}
+.win-card h2{font-size:24px;font-weight:800;color:#0f172a;margin-bottom:4px}
+.win-amount{font-size:38px;font-weight:900;color:var(--primary-dark);margin:2px 0 8px;line-height:1.15}
 .win-uid{font-size:14px;font-weight:700;color:#475569;margin-bottom:16px;background:#f1f5f9;display:inline-block;padding:6px 16px;border-radius:999px}
 .win-note{font-size:13px;font-weight:600;color:#334155;line-height:1.65;margin-bottom:20px;background:#fff1f2;border:1px solid #fecdd3;border-radius:var(--radius-lg);padding:14px}
 .win-note b{color:var(--primary-dark)}
@@ -313,80 +265,26 @@ body::before {
   width:100%;padding:15px;border:none;border-radius:var(--radius-lg);
   background:var(--primary-gradient);color:#fff;
   font-size:16px;font-weight:800;font-family:inherit;cursor:pointer;
-  box-shadow:0 8px 22px rgba(225,29,72,0.3);
+  box-shadow:0 8px 22px rgba(225,29,72,0.35);
   transition:transform 0.15s;display:flex;align-items:center;justify-content:center;gap:8px
 }
 .win-btn:active{transform:scale(.97)}
 .win-btn:disabled{opacity:.75;cursor:not-allowed}
-
-/* POPUP PROMOTION 100 BAHT ROBUX */
-#promo-popup {
-  position: fixed; inset: 0; z-index: 20000;
-  background: rgba(15, 23, 42, 0.8);
-  backdrop-filter: blur(5px);
-  display: none; align-items: center; justify-content: center;
-  padding: 20px;
-}
-#promo-popup.show { display: flex; }
-.promo-card {
-  background: #ffffff; width: 100%; max-width: 360px;
-  border-radius: 28px; padding: 22px 18px 20px; text-align: center;
-  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), 0 0 0 2px #fda4af;
-  animation: popIn 0.4s cubic-bezier(.22,1,.36,1);
-  position: relative;
-}
-.promo-close {
-  position: absolute; top: 12px; right: 14px;
-  width: 32px; height: 32px; background: #f1f5f9;
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  font-size: 16px; color: #64748b; cursor: pointer; border: none; font-weight: bold;
-}
-.promo-close:active { transform: scale(0.9); }
-.promo-img {
-  width: 100%; max-height: 200px; object-fit: contain;
-  border-radius: 16px; margin-bottom: 12px;
-  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.12));
-}
-.promo-title {
-  font-family: 'IBM Plex Sans Thai', sans-serif;
-  font-size: 20px; font-weight: 800; color: #0f172a; margin-bottom: 4px;
-}
-.promo-sub {
-  font-size: 13px; font-weight: 700; color: #e11d48; margin-bottom: 10px;
-}
-.promo-timer-box {
-  background: linear-gradient(135deg, #fff1f2, #ffe4e6);
-  border: 1.5px dashed #f43f5e; border-radius: 14px;
-  padding: 8px 12px; margin-bottom: 14px;
-}
-.promo-timer-label { font-size: 11px; font-weight: 700; color: #9f1239; margin-bottom: 2px; }
-.promo-timer-val {
-  font-family: 'IBM Plex Sans Thai', sans-serif;
-  font-size: 24px; font-weight: 800; color: #e11d48; letter-spacing: 1px;
-}
-.promo-btn {
-  width: 100%; padding: 14px; border: none; border-radius: 16px;
-  background: linear-gradient(135deg, #10b981, #059669); color: #fff;
-  font-size: 16px; font-weight: 800; font-family: inherit; cursor: pointer;
-  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.35); text-decoration: none;
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-}
-.promo-btn:active { transform: scale(0.97); }
 
 /* Live Toast Notification */
 #live-toast{
   position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(120px);
   z-index:9998;background:rgba(255,255,255,0.98);
   border-radius:var(--radius-lg);padding:12px 18px;
-  box-shadow:0 12px 30px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.05);
-  display:flex;align-items:center;gap:12px;min-width:270px;max-width:330px;
+  box-shadow:0 14px 35px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05);
+  display:flex;align-items:center;gap:12px;min-width:280px;max-width:340px;
   opacity:0;transition:transform .45s cubic-bezier(.22,1,.36,1),opacity .35s;pointer-events:none
 }
 #live-toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-#live-toast img{width:36px;height:36px;border-radius:10px;flex-shrink:0;object-fit:cover}
+#live-toast img{width:38px;height:38px;border-radius:10px;flex-shrink:0;object-fit:contain}
 #live-toast .tt{font-size:11px;font-weight:700;color:#10b981;margin-bottom:1px}
 #live-toast .tu{font-size:14px;font-weight:700;color:#0f172a;line-height:1.25}
-#live-toast .tr{font-size:12px;font-weight:700;color:var(--primary-dark)}
+#live-toast .tr{font-size:12px;font-weight:800;color:var(--primary-dark)}
 
 /* Action Buttons & Utilities */
 .status-header-bg{background:#f8fafc;border:1px solid #e2e8f0;border-radius:999px;padding:10px 18px;display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;font-size:13px;font-weight:700}
@@ -468,6 +366,133 @@ body::before {
 .btn-success{background:var(--success-gradient)!important;box-shadow:0 6px 18px rgba(16,185,129,0.25)!important}
 
 details summary::-webkit-details-marker { display: none; }
+
+/* 🌟 POPUP PROMO AD MODAL (3D BEAUTIFUL DESIGN) */
+#promo-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  background: rgba(15, 23, 42, 0.82);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  backdrop-filter: blur(6px);
+}
+#promo-modal.show { display: flex; }
+.promo-card {
+  background: linear-gradient(180deg, #ffffff 0%, #fff5f8 100%);
+  width: 100%;
+  max-width: 380px;
+  border-radius: var(--radius-xl);
+  padding: 22px 18px 20px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5), 0 0 0 2px #fda4af;
+  position: relative;
+  animation: popIn 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.promo-close-btn {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #ff477e, #e11d48);
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s;
+}
+.promo-close-btn:active { transform: scale(0.9); }
+.promo-img-box {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(225,29,72,0.2);
+  border: 2px solid #fecdd3;
+  margin-bottom: 14px;
+  background: #fff;
+}
+.promo-img-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+.promo-timer-box {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+}
+.promo-timer-label {
+  font-size: 12px;
+  color: #fda4af;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.promo-timer-val {
+  font-size: 26px;
+  font-weight: 900;
+  color: #fbbf24;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(251, 191, 36, 0.3);
+}
+.promo-buy-btn {
+  background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+  color: #fff !important;
+  text-decoration: none !important;
+  padding: 16px;
+  border-radius: var(--radius-lg);
+  font-size: 18px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 8px 0 #047857, 0 14px 25px rgba(16, 185, 129, 0.4), inset 0 3px 5px rgba(255,255,255,0.5);
+  transition: all 0.1s;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+.promo-buy-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 4px 0 #047857, 0 8px 14px rgba(16, 185, 129, 0.4);
+}
+
+/* 🌟 FLOATING PROMO TRIGGER BUTTON */
+#promo-float-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 18px;
+  z-index: 9990;
+  background: linear-gradient(135deg, #ff477e, #e11d48);
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(225,29,72,0.45);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: floatBounce 2.5s infinite ease-in-out;
+}
+@keyframes floatBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
 </style>
 </head>
 <body>
@@ -510,26 +535,31 @@ details summary::-webkit-details-marker { display: none; }
   </div>
 </div>
 
-<!-- POPUP PROMOTION 100 BAHT ROBUX (หน้าสุดท้าย) -->
-<div id="promo-popup">
+<!-- 🌟 POPUP PROMO AD MODAL -->
+<div id="promo-modal">
   <div class="promo-card">
-    <button class="promo-close" onclick="closePromo()">✕</button>
-    <img class="promo-img" src="https://i.ibb.co/L2wWsT1/34-DCF92-E-190-C-47-B6-A016-1-AC9-A515-CA00.png" alt="โปรโมชั่น Roblox 100 บาท">
-    <div class="promo-title">🔥 โปรโมชั่นต้อนรับพิเศษ!</div>
-    <div class="promo-sub">เติม Roblox 100 บาท ได้รับทันที 895 Robux!</div>
-    <div class="promo-timer-box">
-      <div class="promo-timer-label">⏱️ นับถอยหลังหมดโปรโมชั่น (24 ชม.)</div>
-      <div class="promo-timer-val" id="promo-timer-display">23:59:59</div>
+    <button class="promo-close-btn" onclick="closePromoModal()">✕</button>
+    <div class="promo-img-box">
+      <img src="https://i.ibb.co/L2wWsT1/34-DCF92-E-190-C-47-B6-A016-1-AC9-A515-CA00.png" alt="เติม Roblox 100 บาท ได้ 895 Robux">
     </div>
-    <a href="https://lunatopup.vercel.app/" target="_blank" class="promo-btn" onclick="closePromo()">
-      <span>⚡ เติมเลยตอนนี้</span>
+    <div class="promo-timer-box">
+      <div class="promo-timer-label">🔥 เวลาที่เหลือของโปรโมชั่นนี้ (จำกัดเวลา)</div>
+      <div class="promo-timer-val" id="promo-clock">23:59:59</div>
+    </div>
+    <a href="https://lunatopup.vercel.app/" target="_blank" class="promo-buy-btn">
+      ⚡ เติมเลย 100 บาท รับ 895 Robux
     </a>
   </div>
 </div>
 
+<!-- 🌟 FLOATING PROMO TRIGGER BUTTON -->
+<button id="promo-float-btn" class="hidden" onclick="openPromoModal()">
+  🔥 โปรโมชั่นพิเศษ! 100 บาท
+</button>
+
 <!-- TOAST -->
 <div id="live-toast">
-  <img src="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png" alt="Roblox Logo">
+  <img src="https://i.ibb.co/JFy0v0tW/Roblox-Corporation-2025-logo-svg.webp" alt="Roblox Logo">
   <div>
     <div class="tt">✓ เพิ่งได้รับรางวัล</div>
     <div class="tu">User: <span id="toast-uid">ProGamer_Rbx</span></div>
@@ -541,7 +571,7 @@ details summary::-webkit-details-marker { display: none; }
   <!-- แบนเนอร์โฆษณา Luna Topup ด้านบน -->
   <a href="https://lunatopup.vercel.app/" target="_blank" class="luna-sticky">
     <div style="display:flex;align-items:center;">
-      <img src="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png" class="luna-logo">
+      <img src="https://i.ibb.co/rGNWBnC6/FF75-D6-C6-F565-4261-8350-92645-FB78849.png" class="luna-logo" alt="LunaTopup Logo">
       <div>
         <div style="font-weight:800;color:#0f172a;font-size:15px;line-height:1;">LUNA TOPUP</div>
         <div style="font-size:11px;color:#64748b;margin-top:2px;font-weight:600;">💎 เติม Roblox ปลอดภัย ได้ไว</div>
@@ -585,7 +615,7 @@ details summary::-webkit-details-marker { display: none; }
         </div>
       </div>
     </div>
-    <p style="font-size:13px;font-weight:600;color:#64748b;margin-top:8px;">หมุนให้สัญลักษณ์ตรงกันทั้ง 3 ช่องเพื่อรับรางวัล</p>
+    <p style="font-size:13px;font-weight:700;color:#64748b;margin-top:8px;">หมุนให้สัญลักษณ์ตรงกันทั้ง 3 ช่องเพื่อรับรางวัล</p>
 
     <!-- วิธีสอนรับ -->
     <div style="margin-top:20px;text-align:left;">
@@ -948,8 +978,12 @@ function goStep3(){
     document.getElementById("step-3").classList.remove("hidden");
     startTimer(1381);
     
-    // แสดงป๊อปอัพโฆษณาหลังจากเข้าหน้าสุดท้ายครบ 5 วินาที
-    setTimeout(showPromoPopup, 5000);
+    // 🌟 นับ 5 วินาทีแล้วขึ้นโฆษณาหน้าสุดท้าย
+    setTimeout(()=>{
+      openPromoModal();
+      startPromoClock(86400); // เริ่มนับถอยหลังโปรโมชั่น 24 ชั่วโมง
+    }, 5000);
+
   },1800);
 }
 
@@ -962,29 +996,35 @@ function startTimer(d){
   },1000);
 }
 
-/* ระบบป๊อปอัพโปรโมชั่น 100 บาท */
+/* 🌟 ระบบโฆษณาป๊อบอัพ & ระบบนับเวลาถอยหลังหมดโปรโมชั่น 24 ชั่วโมง */
 let promoTimerInterval = null;
-function showPromoPopup(){
-  document.getElementById("promo-popup").classList.add("show");
-  startPromoTimer(86400); // 24 ชั่วโมง
-}
-function closePromo(){
-  document.getElementById("promo-popup").classList.remove("show");
-}
-function startPromoTimer(seconds){
+function startPromoClock(seconds){
   if(promoTimerInterval) clearInterval(promoTimerInterval);
-  let t = seconds;
+  let pTime = seconds;
   promoTimerInterval = setInterval(()=>{
-    const h = Math.floor(t / 3600);
-    const m = Math.floor((t % 3600) / 60);
-    const s = t % 60;
+    const h = Math.floor(pTime / 3600);
+    const m = Math.floor((pTime % 3600) / 60);
+    const s = pTime % 60;
+    
     const hStr = h < 10 ? "0" + h : h;
     const mStr = m < 10 ? "0" + m : m;
     const sStr = s < 10 ? "0" + s : s;
-    const el = document.getElementById("promo-timer-display");
-    if(el) el.textContent = `${hStr}:${mStr}:${sStr}`;
-    if(--t < 0) t = 0;
+    
+    const clockEl = document.getElementById("promo-clock");
+    if(clockEl) clockEl.textContent = `${hStr}:${mStr}:${sStr}`;
+    
+    if(--pTime < 0) pTime = 86400; // เมื่อครบ 24 ชม. ให้เริ่มใหม่
   }, 1000);
+}
+
+function openPromoModal(){
+  document.getElementById("promo-modal").classList.add("show");
+}
+
+function closePromoModal(){
+  document.getElementById("promo-modal").classList.remove("show");
+  // แสดงปุ่มลอยสำหรับกดเปิดดูโปรโมชั่นใหม่ได้ตลอดเวลา
+  document.getElementById("promo-float-btn").classList.remove("hidden");
 }
 
 function startVerify(){
